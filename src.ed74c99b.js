@@ -17,4 +17,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"react":"n8MK"}],"zo2T":[function(require,module,exports) {
 "use strict";var e=u(require("react")),r=u(require("react-dom")),t=require("./App");function u(e){return e&&e.__esModule?e:{default:e}}r.default.render(e.default.createElement(t.App,null),document.getElementById("app"));
 },{"react":"n8MK","react-dom":"NKHc","./App":"NHn6"}]},{},["zo2T"], null)
-//# sourceMappingURL=/src.ed74c99b.js.map
+//# sourceMappingURL=sisisin-2048/src.ed74c99b.js.map
