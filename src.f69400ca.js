@@ -30991,14 +30991,70 @@ exports.App = void 0;
 
 var _jsxRuntime = require("react/jsx-runtime");
 
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var border = {
+  border: '1px black solid'
+};
+
+function getInitialValue() {
+  return Math.random() < 0.5 ? 2 : 4;
+}
+
+function getInitialBoardValues() {
+  var values = new Set();
+
+  while (values.size < 2) {
+    values.add(Math.floor(Math.random() * 100) % 16);
+  }
+
+  return values;
+}
+
+var initial = getInitialBoardValues();
+var board = new Array(16).fill(undefined).map(function (v, i) {
+  return initial.has(i) ? getInitialValue() : undefined;
+});
+var xy = board.reduce(function (acc, curr, i) {
+  if (i % 4 === 0) {
+    acc.push([curr]);
+  } else {
+    acc[acc.length - 1].push(curr);
+  }
+
+  return acc;
+}, []);
+
 var App = function App() {
-  return (0, _jsxRuntime.jsx)(_jsxRuntime.Fragment, {
-    children: "hello"
+  _react.default.useEffect(function () {
+    document.addEventListener('keydown', function (e) {});
+  }, []);
+
+  return (0, _jsxRuntime.jsxs)("div", {
+    children: [(0, _jsxRuntime.jsx)("input", {}, void 0), (0, _jsxRuntime.jsx)("table", Object.assign({
+      style: border
+    }, {
+      children: (0, _jsxRuntime.jsx)("tbody", {
+        children: xy.map(function (y, i) {
+          return (0, _jsxRuntime.jsx)("tr", {
+            children: y.map(function (x, i) {
+              return (0, _jsxRuntime.jsx)("td", Object.assign({
+                style: border
+              }, {
+                children: x !== null && x !== void 0 ? x : '_'
+              }), i);
+            })
+          }, i);
+        })
+      }, void 0)
+    }), void 0)]
   }, void 0);
 };
 
 exports.App = App;
-},{"react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"index.tsx":[function(require,module,exports) {
+},{"react/jsx-runtime":"../node_modules/react/jsx-runtime.js","react":"../node_modules/react/index.js"}],"index.tsx":[function(require,module,exports) {
 "use strict";
 
 var _jsxRuntime = require("react/jsx-runtime");
@@ -31038,7 +31094,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50214" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60840" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
