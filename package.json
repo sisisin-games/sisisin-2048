@@ -5,7 +5,6 @@
   "repository": "https://github.com/sisisin/sisisin-2048.git",
   "author": "sisisin <azsisisin@gmail.com>",
   "homepage": "https://2048.sisisin.house",
-  "license": "MIT",
   "scripts": {
     "prestart": "rm -rf .cache dist",
     "start": "parcel ./src/index.html",
