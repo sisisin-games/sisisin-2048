@@ -30981,7 +30981,2010 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"App.tsx":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/swipe-listener/dist/swipe-listener.min.js":[function(require,module,exports) {
+var define;
+'use strict';var _extends=Object.assign||function(a){for(var b,c=1;c<arguments.length;c++)for(var d in b=arguments[c],b)Object.prototype.hasOwnProperty.call(b,d)&&(a[d]=b[d]);return a},SwipeListener=function(a,b){if(a){'undefined'!=typeof window&&function(){function a(a,b){b=b||{bubbles:!1,cancelable:!1,detail:void 0};var c=document.createEvent('CustomEvent');return c.initCustomEvent(a,b.bubbles,b.cancelable,b.detail),c}return'function'!=typeof window.CustomEvent&&void(a.prototype=window.Event.prototype,window.CustomEvent=a)}();b||(b={}),b=_extends({},{minHorizontal:10,minVertical:10,deltaHorizontal:3,deltaVertical:5,preventScroll:!1,lockAxis:!0,touch:!0,mouse:!0},b);var c=[],d=!1,e=function(){d=!0},f=function(a){d=!1,h(a)},g=function(a){d&&(a.changedTouches=[{clientX:a.clientX,clientY:a.clientY}],i(a))};b.mouse&&(a.addEventListener('mousedown',e),a.addEventListener('mouseup',f),a.addEventListener('mousemove',g));var h=function(d){var e=Math.abs,f=Math.max,g=Math.min;if(c.length){for(var h='function'==typeof TouchEvent&&d instanceof TouchEvent,j=[],k=[],l={top:!1,right:!1,bottom:!1,left:!1},m=0;m<c.length;m++)j.push(c[m].x),k.push(c[m].y);var i=j[0],n=j[j.length-1],o=k[0],p=k[k.length-1],q={x:[i,n],y:[o,p]};if(1<c.length){var r={detail:_extends({touch:h,target:d.target},q)},s=new CustomEvent('swiperelease',r);a.dispatchEvent(s)}var t=j[0]-j[j.length-1],u='none';u=0<t?'left':'right';var v,w=g.apply(Math,j),x=f.apply(Math,j);if(e(t)>=b.minHorizontal&&('left'==u?(v=e(w-j[j.length-1]),v<=b.deltaHorizontal&&(l.left=!0)):'right'==u?(v=e(x-j[j.length-1]),v<=b.deltaHorizontal&&(l.right=!0)):void 0),t=k[0]-k[k.length-1],u='none',u=0<t?'top':'bottom',w=g.apply(Math,k),x=f.apply(Math,k),e(t)>=b.minVertical&&('top'==u?(v=e(w-k[k.length-1]),v<=b.deltaVertical&&(l.top=!0)):'bottom'==u?(v=e(x-k[k.length-1]),v<=b.deltaVertical&&(l.bottom=!0)):void 0),(c=[],l.top||l.right||l.bottom||l.left)){b.lockAxis&&((l.left||l.right)&&e(i-n)>e(o-p)?l.top=l.bottom=!1:(l.top||l.bottom)&&e(i-n)<e(o-p)&&(l.left=l.right=!1));var y={detail:_extends({directions:l,touch:h,target:d.target},q)},z=new CustomEvent('swipe',y);a.dispatchEvent(z)}else{var A=new CustomEvent('swipecancel',{detail:_extends({touch:h,target:d.target},q)});a.dispatchEvent(A)}}},i=function(d){var e=d.changedTouches[0];if(c.push({x:e.clientX,y:e.clientY}),1<c.length){var f=c[0].x,g=c[c.length-1].x,h=c[0].y,i=c[c.length-1].y,j={detail:{x:[f,g],y:[h,i],touch:'function'==typeof TouchEvent&&d instanceof TouchEvent,target:d.target}},k=new CustomEvent('swiping',j),l=!0===b.preventScroll||'function'==typeof b.preventScroll&&b.preventScroll(k);l&&d.preventDefault(),a.dispatchEvent(k)}},j=!1;try{var k=Object.defineProperty({},'passive',{get:function(){j={passive:!b.preventScroll}}});window.addEventListener('testPassive',null,k),window.removeEventListener('testPassive',null,k)}catch(a){}return b.touch&&(a.addEventListener('touchmove',i,j),a.addEventListener('touchend',h)),{off:function(){a.removeEventListener('touchmove',i,j),a.removeEventListener('touchend',h),a.removeEventListener('mousedown',e),a.removeEventListener('mouseup',f),a.removeEventListener('mousemove',g)}}}};'undefined'!=typeof module&&'undefined'!=typeof module.exports?(module.exports=SwipeListener,module.exports.default=SwipeListener):'function'==typeof define&&define.amd?define([],function(){return SwipeListener}):window.SwipeListener=SwipeListener;
+},{}],"assets/sisisin2.png":[function(require,module,exports) {
+module.exports = "/sisisin2.a64cf997.png";
+},{}],"assets/sisisin4.png":[function(require,module,exports) {
+module.exports = "/sisisin4.00d06a0c.png";
+},{}],"assets/sisisin8.jpg":[function(require,module,exports) {
+module.exports = "/sisisin8.fdea3190.jpg";
+},{}],"assets/sisisin16.jpg":[function(require,module,exports) {
+module.exports = "/sisisin16.42bc8c65.jpg";
+},{}],"assets/sisisin32.gif":[function(require,module,exports) {
+module.exports = "/sisisin32.5bc0a6d5.gif";
+},{}],"assets/sisisin64.gif":[function(require,module,exports) {
+module.exports = "/sisisin64.f6b1b47c.gif";
+},{}],"assets/sisisin128.jpg":[function(require,module,exports) {
+module.exports = "/sisisin128.b9d991b5.jpg";
+},{}],"assets/sisisin256.png":[function(require,module,exports) {
+module.exports = "/sisisin256.2d0ec59c.png";
+},{}],"assets/sisisin512.gif":[function(require,module,exports) {
+module.exports = "/sisisin512.2d66e48e.gif";
+},{}],"assets/sisisin1024.jpg":[function(require,module,exports) {
+module.exports = "/sisisin1024.f1d3be56.jpg";
+},{}],"assets/sisisin2048.jpg":[function(require,module,exports) {
+module.exports = "/sisisin2048.9b3f5ecf.jpg";
+},{}],"../node_modules/process/browser.js":[function(require,module,exports) {
+
+// shim for using process in browser
+var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+  throw new Error('setTimeout has not been defined');
+}
+
+function defaultClearTimeout() {
+  throw new Error('clearTimeout has not been defined');
+}
+
+(function () {
+  try {
+    if (typeof setTimeout === 'function') {
+      cachedSetTimeout = setTimeout;
+    } else {
+      cachedSetTimeout = defaultSetTimout;
+    }
+  } catch (e) {
+    cachedSetTimeout = defaultSetTimout;
+  }
+
+  try {
+    if (typeof clearTimeout === 'function') {
+      cachedClearTimeout = clearTimeout;
+    } else {
+      cachedClearTimeout = defaultClearTimeout;
+    }
+  } catch (e) {
+    cachedClearTimeout = defaultClearTimeout;
+  }
+})();
+
+function runTimeout(fun) {
+  if (cachedSetTimeout === setTimeout) {
+    //normal enviroments in sane situations
+    return setTimeout(fun, 0);
+  } // if setTimeout wasn't available but was latter defined
+
+
+  if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+    cachedSetTimeout = setTimeout;
+    return setTimeout(fun, 0);
+  }
+
+  try {
+    // when when somebody has screwed with setTimeout but no I.E. maddness
+    return cachedSetTimeout(fun, 0);
+  } catch (e) {
+    try {
+      // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+      return cachedSetTimeout.call(null, fun, 0);
+    } catch (e) {
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+      return cachedSetTimeout.call(this, fun, 0);
+    }
+  }
+}
+
+function runClearTimeout(marker) {
+  if (cachedClearTimeout === clearTimeout) {
+    //normal enviroments in sane situations
+    return clearTimeout(marker);
+  } // if clearTimeout wasn't available but was latter defined
+
+
+  if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+    cachedClearTimeout = clearTimeout;
+    return clearTimeout(marker);
+  }
+
+  try {
+    // when when somebody has screwed with setTimeout but no I.E. maddness
+    return cachedClearTimeout(marker);
+  } catch (e) {
+    try {
+      // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+      return cachedClearTimeout.call(null, marker);
+    } catch (e) {
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+      // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+      return cachedClearTimeout.call(this, marker);
+    }
+  }
+}
+
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+  if (!draining || !currentQueue) {
+    return;
+  }
+
+  draining = false;
+
+  if (currentQueue.length) {
+    queue = currentQueue.concat(queue);
+  } else {
+    queueIndex = -1;
+  }
+
+  if (queue.length) {
+    drainQueue();
+  }
+}
+
+function drainQueue() {
+  if (draining) {
+    return;
+  }
+
+  var timeout = runTimeout(cleanUpNextTick);
+  draining = true;
+  var len = queue.length;
+
+  while (len) {
+    currentQueue = queue;
+    queue = [];
+
+    while (++queueIndex < len) {
+      if (currentQueue) {
+        currentQueue[queueIndex].run();
+      }
+    }
+
+    queueIndex = -1;
+    len = queue.length;
+  }
+
+  currentQueue = null;
+  draining = false;
+  runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+  var args = new Array(arguments.length - 1);
+
+  if (arguments.length > 1) {
+    for (var i = 1; i < arguments.length; i++) {
+      args[i - 1] = arguments[i];
+    }
+  }
+
+  queue.push(new Item(fun, args));
+
+  if (queue.length === 1 && !draining) {
+    runTimeout(drainQueue);
+  }
+}; // v8 likes predictible objects
+
+
+function Item(fun, array) {
+  this.fun = fun;
+  this.array = array;
+}
+
+Item.prototype.run = function () {
+  this.fun.apply(null, this.array);
+};
+
+process.title = 'browser';
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) {
+  return [];
+};
+
+process.binding = function (name) {
+  throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () {
+  return '/';
+};
+
+process.chdir = function (dir) {
+  throw new Error('process.chdir is not supported');
+};
+
+process.umask = function () {
+  return 0;
+};
+},{}],"main.js":[function(require,module,exports) {
+var process = require("process");
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Game = void 0;
+
+var _sisisin = _interopRequireDefault(require("./assets/sisisin2.png"));
+
+var _sisisin2 = _interopRequireDefault(require("./assets/sisisin4.png"));
+
+var _sisisin3 = _interopRequireDefault(require("./assets/sisisin8.jpg"));
+
+var _sisisin4 = _interopRequireDefault(require("./assets/sisisin16.jpg"));
+
+var _sisisin5 = _interopRequireDefault(require("./assets/sisisin32.gif"));
+
+var _sisisin6 = _interopRequireDefault(require("./assets/sisisin64.gif"));
+
+var _sisisin7 = _interopRequireDefault(require("./assets/sisisin128.jpg"));
+
+var _sisisin8 = _interopRequireDefault(require("./assets/sisisin256.png"));
+
+var _sisisin9 = _interopRequireDefault(require("./assets/sisisin512.gif"));
+
+var _sisisin10 = _interopRequireDefault(require("./assets/sisisin1024.jpg"));
+
+var _sisisin11 = _interopRequireDefault(require("./assets/sisisin2048.jpg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+//*
+var isDebug = false;
+/*/
+const isDebug = true;
+//*/
+
+var Settings = {
+  CELL_WIDTH: 100,
+  CELL_HEIGHT: 100,
+  CELL_MARGIN: 12,
+  ANIMATION_SWELLING: 8,
+  ANIMATION_GEN_TIME: 100,
+  FONT_SIZE: 40
+}; // ゲームの状態を管理するクラス
+
+var State = /*#__PURE__*/function () {
+  function State() {
+    _classCallCheck(this, State);
+
+    // 4 * 4 行列で, 各要素にどういう要素が入っているかを管理する
+    this.board = []; // move したときに, 例えば 2 と 2 がくっついたりして merge されたかどうかを管理する
+
+    this.merge = []; // move したときに, 動いたセルはどこからどこへ行ったのか
+
+    this.moveCells = []; // move どの向きに移動したのかを求める
+    // 0: up
+    // 1: right
+    // 2: down
+    // 3: left
+
+    this.move = -1;
+
+    for (var i = 0; i < 16; i++) {
+      this.board.push(0);
+      this.merge.push(false);
+    }
+  } // 指示された方向に動いた際の次の State を求める
+
+
+  _createClass(State, [{
+    key: "calcNextState",
+    value: function calcNextState(dir) {
+      var nextState = new State(); // コピーする
+
+      for (var i = 0; i < 16; i++) {
+        nextState.board[i] = this.board[i];
+      }
+
+      if (dir == 0) {
+        // up
+        nextState._moveUp();
+      } else if (dir == 1) {
+        // right
+        nextState._rotate(3);
+
+        nextState._moveUp();
+
+        nextState._rotate(1);
+      } else if (dir == 2) {
+        // down
+        nextState._rotate(2);
+
+        nextState._moveUp();
+
+        nextState._rotate(2);
+      } else {
+        // left
+        nextState._rotate(1);
+
+        nextState._moveUp();
+
+        nextState._rotate(3);
+      } // 動いてたら動いてたという情報を与える
+
+
+      this.move = -1;
+
+      if (this.moveCells.length > 0) {
+        this.move = dir;
+      }
+
+      return nextState;
+    } // 死んでないか確かめる
+
+  }, {
+    key: "isDie",
+    value: function isDie() {
+      // 全部埋まっていて, かつどの隣り合ったセル同士も異なっていたら true
+      for (var i = 0; i < 4; i++) {
+        for (var j = 0; j < 4; j++) {
+          if (this.board[i * 4 + j] === 0) {
+            return false;
+          }
+
+          var dx = [1, 0];
+          var dy = [0, 1];
+
+          for (var k = 0; k < 2; ++k) {
+            var ni = i + dy[k],
+                nj = j + dx[k];
+
+            if (ni >= 4 || nj >= 4) {
+              continue;
+            }
+
+            if (this.board[i * 4 + j] === this.board[ni * 4 + nj]) {
+              return false;
+            }
+          }
+        }
+      }
+
+      return true;
+    }
+  }, {
+    key: "isClear",
+    value: function isClear() {
+      return this.board.some(function (b) {
+        return b === 2048;
+      });
+    }
+  }, {
+    key: "isGameEnd",
+    value: function isGameEnd() {
+      return this.isDie() || this.isClear();
+    }
+  }, {
+    key: "maxCell",
+    value: function maxCell() {
+      return _toConsumableArray(this.board).sort(function (a, b) {
+        return a - b;
+      }).pop();
+    } // 空き領域を配列にして返す
+
+  }, {
+    key: "getEmptyCells",
+    value: function getEmptyCells() {
+      var result = [];
+
+      for (var i = 0; i < 16; i++) {
+        if (this.board[i] == 0) {
+          result.push(i);
+        }
+      }
+
+      return result;
+    } // セルの値を書き換える(ランダムに出現するのをイメージ)
+    // だけど別の用途で使ってもいいやという
+    // y, x: 場所
+
+  }, {
+    key: "rewriteCells",
+    value: function rewriteCells(y, x, value) {
+      this.board[y * 4 + x] = value;
+    } // board を時計回りに回転させる
+
+  }, {
+    key: "_rotate",
+    value: function _rotate(rot) {
+      for (var i = 0; i < rot; ++i) {
+        var nextBoard = [];
+        var nextMerge = [];
+
+        for (var j = 0; j < 16; ++j) {
+          var y = Math.floor(j / 4),
+              x = j - 4 * y;
+          var ny = x,
+              nx = 3 - y;
+          nextBoard[ny * 4 + nx] = this.board[j];
+          nextMerge[ny * 4 + nx] = this.merge[j];
+        }
+
+        this.board = nextBoard;
+        this.merge = nextMerge;
+        var nextMoveCells = [];
+
+        for (var _i = 0; _i < this.moveCells.length; ++_i) {
+          var moveCell = this.moveCells[_i];
+          var fx = moveCell.fx,
+              fy = moveCell.fy,
+              tx = moveCell.tx,
+              ty = moveCell.ty;
+          nextMoveCells.push({
+            fx: 3 - fy,
+            fy: fx,
+            tx: 3 - ty,
+            ty: tx
+          });
+        }
+
+        this.moveCells = nextMoveCells;
+      }
+    } // 後 _moveUp が必要ですね
+
+  }, {
+    key: "_moveUp",
+    value: function _moveUp() {
+      // merge 情報をリセット
+      for (var y = 0; y < 4; y++) {
+        for (var x = 0; x < 4; x++) {
+          this.merge[y * 4 + x] = false;
+        }
+      } // 上から順番に見ていき, くっつけられるならくっつけていく
+
+
+      for (var _y = 1; _y < 4; _y++) {
+        for (var _x = 0; _x < 4; ++_x) {
+          if (this.board[_y * 4 + _x] === 0) continue;
+          var cy = _y;
+
+          while (cy >= 1) {
+            var num = this.board[(cy - 1) * 4 + _x];
+
+            if (num === 0) {
+              // 上が空いてるなら普通に動かす
+              this.board[(cy - 1) * 4 + _x] = this.board[cy * 4 + _x];
+              this.board[cy * 4 + _x] = 0;
+              --cy;
+            } else if (num === this.board[cy * 4 + _x] && !this.merge[cy * 4 + _x] && !this.merge[(cy - 1) * 4 + _x]) {
+              // 上と同じ数なら合体させる
+              this.board[(cy - 1) * 4 + _x] = 2 * num;
+              this.board[cy * 4 + _x] = 0;
+              this.merge[(cy - 1) * 4 + _x] = true;
+              --cy;
+            } else {
+              break;
+            }
+          }
+
+          if (cy != _y) {
+            // 少なくとも一マス動いているので動き情報を記録
+            this.moveCells.push({
+              fx: _x,
+              fy: _y,
+              tx: _x,
+              ty: cy
+            });
+          }
+        }
+      }
+    }
+  }]);
+
+  return State;
+}(); // Game 全体を管理するクラス
+
+
+var Game = /*#__PURE__*/function () {
+  function Game() {
+    _classCallCheck(this, Game);
+
+    this.listeners = [];
+    this.startedTime = new Date();
+    this.moveCount = 0; // 制御するセルを指定
+
+    this.screen = document.getElementById('gameBoard');
+    this.animation = new Animation(this.screen);
+    this.state = new State();
+    var v = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048];
+    var fillCount = isDebug ? v.length : 2; // 初期状態として 2 つ cell を入れておく
+
+    for (var i = 0; i < fillCount; i++) {
+      var _v$i;
+
+      var empty = this.state.getEmptyCells();
+      var num = isDebug ? (_v$i = v[i]) !== null && _v$i !== void 0 ? _v$i : 0 : Math.random() < 0.9 ? 2 : 4;
+      var index = empty[Math.floor(Math.random() * empty.length)];
+      var y = Math.floor(index / 4),
+          x = index % 4;
+      this.state.rewriteCells(y, x, num);
+      this.animation.generate(this.screen, y, x, num, 1);
+    }
+  } // キー入力に対応してゴニョゴニョする
+
+
+  _createClass(Game, [{
+    key: "move",
+    value: function move(dir) {
+      var _this = this;
+
+      if (this.state.isDie()) return;
+      if (!this.animation.finish) return;
+      var nextState = this.state.calcNextState(dir);
+      var modifiedTime = new Date(); // いずれかのセルが動いたならば
+
+      if (nextState.moveCells.length > 0) {
+        // ランダムに数字を挿入する処理
+        var empty = nextState.getEmptyCells();
+        var num = Math.random() < 0.9 ? 2 : 4;
+        var index = empty[Math.floor(Math.random() * empty.length)];
+        var y = Math.floor(index / 4),
+            x = index % 4; // なんやかんや
+
+        nextState.rewriteCells(y, x, num); // アニメーション
+
+        this.animation.update(nextState, y, x, num, function () {
+          if (nextState.isGameEnd()) {
+            _this.listeners.forEach(function (cb) {
+              return cb(_this.getGameResult(nextState, modifiedTime));
+            });
+          }
+        }); // state を更新
+
+        this.state = nextState;
+        this.moveCount++;
+
+        if (isDebug) {
+          console.log(this.getGameResult(this.state, modifiedTime));
+        }
+      }
+    }
+  }, {
+    key: "getGameResult",
+    value: function getGameResult(state, time) {
+      var span = time - this.startedTime;
+      var d = Math.floor(span / (1000 * 60 * 60 * 24));
+      var h = Math.floor(span / (1000 * 60 * 60));
+      var m = Math.floor(span / (1000 * 60));
+      var s = Math.floor(span / 1000);
+      var ds = fmt(d, '日');
+      var hs = fmt(h, '時間');
+      var ms = fmt(m, '分');
+      var ss = s;
+      var mss = fmt(span, '秒');
+      var formatted = "".concat(ds).concat(hs).concat(ms).concat(ss, ".").concat(mss);
+      return {
+        gameStatus: state.isClear() ? 'cleared' : state.isDie() ? 'died' : undefined,
+        moveCount: this.moveCount,
+        time: span,
+        formatted: formatted,
+        max: state.maxCell()
+      };
+
+      function fmt(v, suf) {
+        return v > 0 ? "".concat(v).concat(suf) : '';
+      }
+    }
+  }, {
+    key: "onGameEnd",
+    value: function onGameEnd(cb) {
+      this.listeners.push(cb);
+    }
+  }]);
+
+  return Game;
+}();
+
+exports.Game = Game;
+
+var Animation = /*#__PURE__*/function () {
+  function Animation(screen) {
+    _classCallCheck(this, Animation);
+
+    // 下に並べて置くセル
+    this.bottomCells = []; // 実際に動くセル
+
+    this.cells = []; // セルの位置を覚えておく
+    // this.cells[i] の位置は this.pos[i] が覚えておく
+
+    this.pos = new Map(); // 新しいセルを出現させるときのイテレーター的な
+
+    this.itr = 0;
+
+    for (var i = 0; i < 16; i++) {
+      var y = Math.floor(i / 4),
+          x = i % 4;
+      var cell = new Cell(0, screen);
+      cell.setPos(y, x);
+      this.bottomCells.push(cell);
+    }
+
+    this.screen = screen; // アニメーションが終了したかどうか
+
+    this.finish = true;
+  } // 指定したセル群を移動させる -> 合体させる -> 新しい数字が表れる
+  // 引数：State クラス
+  // 最後に merge したところから数字を登場させる
+
+
+  _createClass(Animation, [{
+    key: "update",
+    value: function update(state, addY, addX, addNum) {
+      var _this2 = this;
+
+      var cb = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : function () {};
+      // アニメーション開始
+      this.finish = false; // 移動するアニメーション
+
+      {
+        var progress = 0;
+        var time = Settings.ANIMATION_GEN_TIME;
+        var start = null; // index -> 目標位置
+
+        var map = new Map();
+
+        var _iterator = _createForOfIteratorHelper(state.moveCells),
+            _step;
+
+        try {
+          var _loop = function _loop() {
+            var move = _step.value;
+            var index = -1;
+
+            _this2.pos.forEach(function (value, key, map) {
+              if (value.x === move.fx && value.y === move.fy) {
+                index = key;
+              }
+            });
+
+            if (index === -1) {
+              console.error('cell not found!');
+              return "continue";
+            }
+
+            map.set(index, move);
+          };
+
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var _ret = _loop();
+
+            if (_ret === "continue") continue;
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+
+        map.forEach(function (value, key, map) {
+          _this2.pos.set(key, {
+            x: value.tx,
+            y: value.ty
+          });
+        });
+
+        var proc = function proc(timestamp) {
+          if (!start) {
+            start = timestamp;
+          }
+
+          progress = (timestamp - start) / time;
+          progress = Math.min(progress, 1);
+
+          if (progress >= 0) {
+            map.forEach(function (value, key, map) {
+              _this2.cells[key].translate(value.fx, value.fy, value.tx, value.ty, progress);
+            });
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(proc);
+          }
+        };
+
+        requestAnimationFrame(proc);
+      } // 数字が合体して数字が表れるアニメーション
+
+      {
+        // removeChild する要素の index
+        var deleteIndex = []; // 数を倍にする要素の index
+
+        var animationIndex = []; // merge が true になる場所に向かっているセルは必ず二つあるので, 一つは delete に入れてもう一つは animation に入れる
+
+        var _loop2 = function _loop2(y) {
+          var _loop3 = function _loop3(x) {
+            if (state.merge[y * 4 + x]) {
+              // this.pos から index を二つ探す
+              var index = [];
+
+              _this2.pos.forEach(function (value, key, map) {
+                if (value.x === x && value.y === y) {
+                  index.push(key);
+                }
+              });
+
+              deleteIndex.push(index[0]);
+              animationIndex.push(index[1]);
+            }
+          };
+
+          for (var x = 0; x < 4; ++x) {
+            _loop3(x);
+          }
+        };
+
+        for (var y = 0; y < 4; ++y) {
+          _loop2(y);
+        } // 新しく追加する数字
+
+
+        var addIndex = this.itr++;
+        this.pos.set(addIndex, {
+          x: addX,
+          y: addY
+        });
+        var _progress = 0;
+        var _time = Settings.ANIMATION_GEN_TIME;
+        var _start = null;
+
+        var _proc = function _proc() {
+          if (!_start) {
+            _start = new Date();
+            _this2.cells[addIndex] = new Cell(addNum, _this2.screen);
+          }
+
+          var timestamp = new Date();
+          _progress = (timestamp - _start) / _time;
+          _progress = Math.min(_progress, 1);
+
+          if (_progress >= 0) {
+            var _iterator2 = _createForOfIteratorHelper(animationIndex),
+                _step2;
+
+            try {
+              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                var index = _step2.value;
+
+                var p = _this2.pos.get(index);
+
+                _this2.cells[index].changeAttrib(state.board[p.y * 4 + p.x]);
+
+                _this2.cells[index].appear(_this2.pos.get(index).y, _this2.pos.get(index).x, _progress, 2);
+              }
+            } catch (err) {
+              _iterator2.e(err);
+            } finally {
+              _iterator2.f();
+            }
+
+            _this2.cells[addIndex].appear(addY, addX, _progress, 1);
+          }
+
+          if (_progress < 1) {
+            requestAnimationFrame(_proc);
+          } else {
+            // アニメーション終了
+            _this2.finish = true;
+
+            var _iterator3 = _createForOfIteratorHelper(deleteIndex),
+                _step3;
+
+            try {
+              for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+                var _index = _step3.value;
+
+                _this2.screen.removeChild(_this2.cells[_index].elem);
+
+                _this2.cells[_index] = null;
+
+                _this2.pos.delete(_index);
+              }
+            } catch (err) {
+              _iterator3.e(err);
+            } finally {
+              _iterator3.f();
+            }
+
+            cb();
+          }
+        };
+
+        setTimeout(_proc, Settings.ANIMATION_GEN_TIME * 1.1);
+      }
+    } // 数字が表れる
+    // screen: 親要素
+    // [y, x] 座標に num を登場させるアニメーション
+    // type: アニメーションの仕方(0: 特に何も 1: 広がる感じ(ランダムに表れるやつ) 2: 広がってから落ち着く(合体するやつ))
+
+  }, {
+    key: "generate",
+    value: function generate(screen, y, x, num) {
+      var _this3 = this;
+
+      var type = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
+      var index = -1;
+      this.pos.forEach(function (value, key, map) {
+        if (value.x === x && value.y === y) {
+          index = key;
+        }
+      });
+
+      if (index !== -1) {
+        this.cells[index].changeAttrib(num);
+        return;
+      }
+
+      index = this.itr++;
+      this.cells[index] = new Cell(num, screen);
+      this.pos.set(index, {
+        x: x,
+        y: y
+      });
+      var progress = 0;
+      var start = null;
+      var time = Settings.ANIMATION_GEN_TIME;
+
+      var update = function update(timestamp) {
+        if (!start) {
+          start = timestamp;
+        }
+
+        progress = (timestamp - start) / time;
+        progress = Math.min(progress, 1);
+
+        if (progress >= 0) {
+          _this3.cells[index].appear(y, x, progress, type);
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
+      };
+
+      requestAnimationFrame(update);
+    }
+  }]);
+
+  return Animation;
+}(); // Cell を管理するクラス
+
+
+var Cell = /*#__PURE__*/function () {
+  // num: 数字
+  // screen: 親要素
+  function Cell(num, screen) {
+    _classCallCheck(this, Cell);
+
+    this.elem = this._initElement();
+    screen.appendChild(this.elem);
+    this.changeAttrib(num);
+  } // 移動する
+  // fx, fy: どこから
+  // tx, ty: どこへ
+  // process: 進捗率
+
+
+  _createClass(Cell, [{
+    key: "translate",
+    value: function translate(fx, fy, tx, ty, process) {
+      var x = fx + (tx - fx) * process;
+      var y = fy + (ty - fy) * process;
+      var posX = x * (Settings.CELL_WIDTH + Settings.CELL_MARGIN) + Settings.CELL_MARGIN;
+      var posY = y * (Settings.CELL_HEIGHT + Settings.CELL_MARGIN) + Settings.CELL_MARGIN;
+      this.elem.style.left = "".concat(posX, "px");
+      this.elem.style.top = "".concat(posY, "px");
+    } // セルを配置
+    // y, x: 配置する位置
+
+  }, {
+    key: "setPos",
+    value: function setPos(y, x) {
+      this.appear(y, x, 0);
+    } // 新しいセルが現れるアニメーション
+    // y, x: 出てくる位置
+    // process: 進捗率
+    // type: アニメーションの仕方(0: 特に何も 1: 広がる感じ(ランダムに表れるやつ) 2: 広がってから落ち着く(合体するやつ))
+
+  }, {
+    key: "appear",
+    value: function appear(y, x, progress) {
+      var type = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+      var height = Settings.CELL_HEIGHT;
+      var width = Settings.CELL_WIDTH;
+      var posY = y * (Settings.CELL_HEIGHT + Settings.CELL_MARGIN) + Settings.CELL_MARGIN;
+      var posX = x * (Settings.CELL_WIDTH + Settings.CELL_MARGIN) + Settings.CELL_MARGIN;
+      var fontSize = Settings.FONT_SIZE;
+
+      if (type === 1) {
+        height = Settings.CELL_HEIGHT * progress;
+        width = Settings.CELL_WIDTH * progress;
+        posX = x * (Settings.CELL_WIDTH + Settings.CELL_MARGIN) + Settings.CELL_MARGIN + (Settings.CELL_WIDTH - width) / 2;
+        posY = y * (Settings.CELL_HEIGHT + Settings.CELL_MARGIN) + Settings.CELL_MARGIN + (Settings.CELL_HEIGHT - height) / 2;
+        fontSize = Settings.FONT_SIZE * progress;
+      } else if (type === 2) {
+        height = Settings.CELL_HEIGHT + Settings.ANIMATION_SWELLING * Math.sin(Math.PI * progress);
+        width = Settings.CELL_WIDTH + Settings.ANIMATION_SWELLING * Math.sin(Math.PI * progress);
+        posX = x * (Settings.CELL_WIDTH + Settings.CELL_MARGIN) + Settings.CELL_MARGIN + (Settings.CELL_WIDTH - width) / 2;
+        posY = y * (Settings.CELL_HEIGHT + Settings.CELL_MARGIN) + Settings.CELL_MARGIN + (Settings.CELL_HEIGHT - height) / 2;
+        fontSize = Settings.FONT_SIZE * (height / Settings.CELL_HEIGHT);
+      }
+
+      this.elem.style.left = "".concat(posX, "px");
+      this.elem.style.top = "".concat(posY, "px");
+      this.elem.style.height = "".concat(height, "px");
+      this.elem.style.width = "".concat(width, "px");
+      this.elem.style.fontSize = "".concat(fontSize, "px");
+      this.elem.style.lineHeight = "".concat(height, "px");
+    } // セルの値を変更する
+
+  }, {
+    key: "changeAttrib",
+    value: function changeAttrib(num) {
+      // this.elem.textContent = num > 0 ? num : '';
+      this.elem.style.backgroundSize = 'cover';
+      this.num = num;
+
+      switch (num) {
+        case 0:
+          this.elem.style.backgroundColor = '#ccc';
+          this.elem.style.color = '#000';
+          break;
+
+        case 2:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin.default, "\")");
+          this.elem.style.backgroundColor = '#eee';
+          this.elem.style.color = '#000';
+          break;
+
+        case 4:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin2.default, "\")");
+          this.elem.style.backgroundColor = '#eec';
+          this.elem.style.color = '#000';
+          break;
+
+        case 8:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin3.default, "\")");
+          this.elem.style.backgroundColor = '#f93';
+          this.elem.style.color = '#fff';
+          break;
+
+        case 16:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin4.default, "\")");
+          this.elem.style.backgroundColor = '#c66';
+          this.elem.style.color = '#fff';
+          break;
+
+        case 32:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin5.default, "\")");
+          this.elem.style.backgroundColor = '#c33';
+          this.elem.style.color = '#fff';
+          break;
+
+        case 64:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin6.default, "\")");
+          this.elem.style.backgroundColor = '#c11';
+          this.elem.style.color = '#fff';
+          break;
+
+        case 128:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin7.default, "\")");
+          this.elem.style.backgroundColor = '#fc6';
+          this.elem.style.color = '#fff';
+          break;
+
+        case 256:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin8.default, "\")");
+          this.elem.style.backgroundColor = '#fc5';
+          this.elem.style.color = '#fff';
+          break;
+
+        case 512:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin9.default, "\")");
+          this.elem.style.backgroundColor = '#fc3';
+          this.elem.style.color = '#fff';
+          break;
+
+        case 1024:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin10.default, "\")");
+          this.elem.style.backgroundColor = '#fc1';
+          this.elem.style.color = '#fff';
+          break;
+
+        case 2048:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin11.default, "\")");
+          this.elem.style.backgroundColor = '#fc0';
+          this.elem.style.color = '#fff';
+          break;
+
+        default:
+          this.elem.style.backgroundColor = '#222';
+          this.elem.style.color = '#fff';
+          break;
+      }
+    }
+  }, {
+    key: "_initElement",
+    value: function _initElement() {
+      var result = document.createElement('div');
+      result.classList.add('gameCell');
+      return result;
+    }
+  }]);
+
+  return Cell;
+}();
+},{"./assets/sisisin2.png":"assets/sisisin2.png","./assets/sisisin4.png":"assets/sisisin4.png","./assets/sisisin8.jpg":"assets/sisisin8.jpg","./assets/sisisin16.jpg":"assets/sisisin16.jpg","./assets/sisisin32.gif":"assets/sisisin32.gif","./assets/sisisin64.gif":"assets/sisisin64.gif","./assets/sisisin128.jpg":"assets/sisisin128.jpg","./assets/sisisin256.png":"assets/sisisin256.png","./assets/sisisin512.gif":"assets/sisisin512.gif","./assets/sisisin1024.jpg":"assets/sisisin1024.jpg","./assets/sisisin2048.jpg":"assets/sisisin2048.jpg","process":"../node_modules/process/browser.js"}],"../node_modules/uuid/dist/esm-browser/rng.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = rng;
+// Unique ID creation requires a high quality random # generator. In the browser we therefore
+// require the crypto API and do not support built-in fallback to lower quality random number
+// generators (like Math.random()).
+var getRandomValues;
+var rnds8 = new Uint8Array(16);
+
+function rng() {
+  // lazy load so that environments that need to polyfill have a chance to do so
+  if (!getRandomValues) {
+    // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation. Also,
+    // find the complete implementation of crypto (msCrypto) on IE11.
+    getRandomValues = typeof crypto !== 'undefined' && crypto.getRandomValues && crypto.getRandomValues.bind(crypto) || typeof msCrypto !== 'undefined' && typeof msCrypto.getRandomValues === 'function' && msCrypto.getRandomValues.bind(msCrypto);
+
+    if (!getRandomValues) {
+      throw new Error('crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported');
+    }
+  }
+
+  return getRandomValues(rnds8);
+}
+},{}],"../node_modules/uuid/dist/esm-browser/regex.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
+exports.default = _default;
+},{}],"../node_modules/uuid/dist/esm-browser/validate.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _regex = _interopRequireDefault(require("./regex.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function validate(uuid) {
+  return typeof uuid === 'string' && _regex.default.test(uuid);
+}
+
+var _default = validate;
+exports.default = _default;
+},{"./regex.js":"../node_modules/uuid/dist/esm-browser/regex.js"}],"../node_modules/uuid/dist/esm-browser/stringify.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _validate = _interopRequireDefault(require("./validate.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Convert array of 16 byte values to UUID string format of the form:
+ * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+ */
+var byteToHex = [];
+
+for (var i = 0; i < 256; ++i) {
+  byteToHex.push((i + 0x100).toString(16).substr(1));
+}
+
+function stringify(arr) {
+  var offset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0; // Note: Be careful editing this code!  It's been tuned for performance
+  // and works in ways you may not expect. See https://github.com/uuidjs/uuid/pull/434
+
+  var uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + '-' + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + '-' + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + '-' + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + '-' + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase(); // Consistency check for valid UUID.  If this throws, it's likely due to one
+  // of the following:
+  // - One or more input array values don't map to a hex octet (leading to
+  // "undefined" in the uuid)
+  // - Invalid input values for the RFC `version` or `variant` fields
+
+  if (!(0, _validate.default)(uuid)) {
+    throw TypeError('Stringified UUID is invalid');
+  }
+
+  return uuid;
+}
+
+var _default = stringify;
+exports.default = _default;
+},{"./validate.js":"../node_modules/uuid/dist/esm-browser/validate.js"}],"../node_modules/uuid/dist/esm-browser/v1.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _rng = _interopRequireDefault(require("./rng.js"));
+
+var _stringify = _interopRequireDefault(require("./stringify.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// **`v1()` - Generate time-based UUID**
+//
+// Inspired by https://github.com/LiosK/UUID.js
+// and http://docs.python.org/library/uuid.html
+var _nodeId;
+
+var _clockseq; // Previous uuid creation time
+
+
+var _lastMSecs = 0;
+var _lastNSecs = 0; // See https://github.com/uuidjs/uuid for API details
+
+function v1(options, buf, offset) {
+  var i = buf && offset || 0;
+  var b = buf || new Array(16);
+  options = options || {};
+  var node = options.node || _nodeId;
+  var clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq; // node and clockseq need to be initialized to random values if they're not
+  // specified.  We do this lazily to minimize issues related to insufficient
+  // system entropy.  See #189
+
+  if (node == null || clockseq == null) {
+    var seedBytes = options.random || (options.rng || _rng.default)();
+
+    if (node == null) {
+      // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
+      node = _nodeId = [seedBytes[0] | 0x01, seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]];
+    }
+
+    if (clockseq == null) {
+      // Per 4.2.2, randomize (14 bit) clockseq
+      clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 0x3fff;
+    }
+  } // UUID timestamps are 100 nano-second units since the Gregorian epoch,
+  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
+  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
+  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
+
+
+  var msecs = options.msecs !== undefined ? options.msecs : Date.now(); // Per 4.2.1.2, use count of uuid's generated during the current clock
+  // cycle to simulate higher resolution clock
+
+  var nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1; // Time since last uuid creation (in msecs)
+
+  var dt = msecs - _lastMSecs + (nsecs - _lastNSecs) / 10000; // Per 4.2.1.2, Bump clockseq on clock regression
+
+  if (dt < 0 && options.clockseq === undefined) {
+    clockseq = clockseq + 1 & 0x3fff;
+  } // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
+  // time interval
+
+
+  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
+    nsecs = 0;
+  } // Per 4.2.1.2 Throw error if too many uuids are requested
+
+
+  if (nsecs >= 10000) {
+    throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
+  }
+
+  _lastMSecs = msecs;
+  _lastNSecs = nsecs;
+  _clockseq = clockseq; // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
+
+  msecs += 12219292800000; // `time_low`
+
+  var tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
+  b[i++] = tl >>> 24 & 0xff;
+  b[i++] = tl >>> 16 & 0xff;
+  b[i++] = tl >>> 8 & 0xff;
+  b[i++] = tl & 0xff; // `time_mid`
+
+  var tmh = msecs / 0x100000000 * 10000 & 0xfffffff;
+  b[i++] = tmh >>> 8 & 0xff;
+  b[i++] = tmh & 0xff; // `time_high_and_version`
+
+  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
+
+  b[i++] = tmh >>> 16 & 0xff; // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
+
+  b[i++] = clockseq >>> 8 | 0x80; // `clock_seq_low`
+
+  b[i++] = clockseq & 0xff; // `node`
+
+  for (var n = 0; n < 6; ++n) {
+    b[i + n] = node[n];
+  }
+
+  return buf || (0, _stringify.default)(b);
+}
+
+var _default = v1;
+exports.default = _default;
+},{"./rng.js":"../node_modules/uuid/dist/esm-browser/rng.js","./stringify.js":"../node_modules/uuid/dist/esm-browser/stringify.js"}],"../node_modules/uuid/dist/esm-browser/parse.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _validate = _interopRequireDefault(require("./validate.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function parse(uuid) {
+  if (!(0, _validate.default)(uuid)) {
+    throw TypeError('Invalid UUID');
+  }
+
+  var v;
+  var arr = new Uint8Array(16); // Parse ########-....-....-....-............
+
+  arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
+  arr[1] = v >>> 16 & 0xff;
+  arr[2] = v >>> 8 & 0xff;
+  arr[3] = v & 0xff; // Parse ........-####-....-....-............
+
+  arr[4] = (v = parseInt(uuid.slice(9, 13), 16)) >>> 8;
+  arr[5] = v & 0xff; // Parse ........-....-####-....-............
+
+  arr[6] = (v = parseInt(uuid.slice(14, 18), 16)) >>> 8;
+  arr[7] = v & 0xff; // Parse ........-....-....-####-............
+
+  arr[8] = (v = parseInt(uuid.slice(19, 23), 16)) >>> 8;
+  arr[9] = v & 0xff; // Parse ........-....-....-....-############
+  // (Use "/" to avoid 32-bit truncation when bit-shifting high-order bytes)
+
+  arr[10] = (v = parseInt(uuid.slice(24, 36), 16)) / 0x10000000000 & 0xff;
+  arr[11] = v / 0x100000000 & 0xff;
+  arr[12] = v >>> 24 & 0xff;
+  arr[13] = v >>> 16 & 0xff;
+  arr[14] = v >>> 8 & 0xff;
+  arr[15] = v & 0xff;
+  return arr;
+}
+
+var _default = parse;
+exports.default = _default;
+},{"./validate.js":"../node_modules/uuid/dist/esm-browser/validate.js"}],"../node_modules/uuid/dist/esm-browser/v35.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+exports.URL = exports.DNS = void 0;
+
+var _stringify = _interopRequireDefault(require("./stringify.js"));
+
+var _parse = _interopRequireDefault(require("./parse.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function stringToBytes(str) {
+  str = unescape(encodeURIComponent(str)); // UTF8 escape
+
+  var bytes = [];
+
+  for (var i = 0; i < str.length; ++i) {
+    bytes.push(str.charCodeAt(i));
+  }
+
+  return bytes;
+}
+
+var DNS = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
+exports.DNS = DNS;
+var URL = '6ba7b811-9dad-11d1-80b4-00c04fd430c8';
+exports.URL = URL;
+
+function _default(name, version, hashfunc) {
+  function generateUUID(value, namespace, buf, offset) {
+    if (typeof value === 'string') {
+      value = stringToBytes(value);
+    }
+
+    if (typeof namespace === 'string') {
+      namespace = (0, _parse.default)(namespace);
+    }
+
+    if (namespace.length !== 16) {
+      throw TypeError('Namespace must be array-like (16 iterable integer values, 0-255)');
+    } // Compute hash of namespace and value, Per 4.3
+    // Future: Use spread syntax when supported on all platforms, e.g. `bytes =
+    // hashfunc([...namespace, ... value])`
+
+
+    var bytes = new Uint8Array(16 + value.length);
+    bytes.set(namespace);
+    bytes.set(value, namespace.length);
+    bytes = hashfunc(bytes);
+    bytes[6] = bytes[6] & 0x0f | version;
+    bytes[8] = bytes[8] & 0x3f | 0x80;
+
+    if (buf) {
+      offset = offset || 0;
+
+      for (var i = 0; i < 16; ++i) {
+        buf[offset + i] = bytes[i];
+      }
+
+      return buf;
+    }
+
+    return (0, _stringify.default)(bytes);
+  } // Function#name is not settable on some platforms (#270)
+
+
+  try {
+    generateUUID.name = name; // eslint-disable-next-line no-empty
+  } catch (err) {} // For CommonJS default export support
+
+
+  generateUUID.DNS = DNS;
+  generateUUID.URL = URL;
+  return generateUUID;
+}
+},{"./stringify.js":"../node_modules/uuid/dist/esm-browser/stringify.js","./parse.js":"../node_modules/uuid/dist/esm-browser/parse.js"}],"../node_modules/uuid/dist/esm-browser/md5.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+/*
+ * Browser-compatible JavaScript MD5
+ *
+ * Modification of JavaScript MD5
+ * https://github.com/blueimp/JavaScript-MD5
+ *
+ * Copyright 2011, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * https://opensource.org/licenses/MIT
+ *
+ * Based on
+ * A JavaScript implementation of the RSA Data Security, Inc. MD5 Message
+ * Digest Algorithm, as defined in RFC 1321.
+ * Version 2.2 Copyright (C) Paul Johnston 1999 - 2009
+ * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
+ * Distributed under the BSD License
+ * See http://pajhome.org.uk/crypt/md5 for more info.
+ */
+function md5(bytes) {
+  if (typeof bytes === 'string') {
+    var msg = unescape(encodeURIComponent(bytes)); // UTF8 escape
+
+    bytes = new Uint8Array(msg.length);
+
+    for (var i = 0; i < msg.length; ++i) {
+      bytes[i] = msg.charCodeAt(i);
+    }
+  }
+
+  return md5ToHexEncodedArray(wordsToMd5(bytesToWords(bytes), bytes.length * 8));
+}
+/*
+ * Convert an array of little-endian words to an array of bytes
+ */
+
+
+function md5ToHexEncodedArray(input) {
+  var output = [];
+  var length32 = input.length * 32;
+  var hexTab = '0123456789abcdef';
+
+  for (var i = 0; i < length32; i += 8) {
+    var x = input[i >> 5] >>> i % 32 & 0xff;
+    var hex = parseInt(hexTab.charAt(x >>> 4 & 0x0f) + hexTab.charAt(x & 0x0f), 16);
+    output.push(hex);
+  }
+
+  return output;
+}
+/**
+ * Calculate output length with padding and bit length
+ */
+
+
+function getOutputLength(inputLength8) {
+  return (inputLength8 + 64 >>> 9 << 4) + 14 + 1;
+}
+/*
+ * Calculate the MD5 of an array of little-endian words, and a bit length.
+ */
+
+
+function wordsToMd5(x, len) {
+  /* append padding */
+  x[len >> 5] |= 0x80 << len % 32;
+  x[getOutputLength(len) - 1] = len;
+  var a = 1732584193;
+  var b = -271733879;
+  var c = -1732584194;
+  var d = 271733878;
+
+  for (var i = 0; i < x.length; i += 16) {
+    var olda = a;
+    var oldb = b;
+    var oldc = c;
+    var oldd = d;
+    a = md5ff(a, b, c, d, x[i], 7, -680876936);
+    d = md5ff(d, a, b, c, x[i + 1], 12, -389564586);
+    c = md5ff(c, d, a, b, x[i + 2], 17, 606105819);
+    b = md5ff(b, c, d, a, x[i + 3], 22, -1044525330);
+    a = md5ff(a, b, c, d, x[i + 4], 7, -176418897);
+    d = md5ff(d, a, b, c, x[i + 5], 12, 1200080426);
+    c = md5ff(c, d, a, b, x[i + 6], 17, -1473231341);
+    b = md5ff(b, c, d, a, x[i + 7], 22, -45705983);
+    a = md5ff(a, b, c, d, x[i + 8], 7, 1770035416);
+    d = md5ff(d, a, b, c, x[i + 9], 12, -1958414417);
+    c = md5ff(c, d, a, b, x[i + 10], 17, -42063);
+    b = md5ff(b, c, d, a, x[i + 11], 22, -1990404162);
+    a = md5ff(a, b, c, d, x[i + 12], 7, 1804603682);
+    d = md5ff(d, a, b, c, x[i + 13], 12, -40341101);
+    c = md5ff(c, d, a, b, x[i + 14], 17, -1502002290);
+    b = md5ff(b, c, d, a, x[i + 15], 22, 1236535329);
+    a = md5gg(a, b, c, d, x[i + 1], 5, -165796510);
+    d = md5gg(d, a, b, c, x[i + 6], 9, -1069501632);
+    c = md5gg(c, d, a, b, x[i + 11], 14, 643717713);
+    b = md5gg(b, c, d, a, x[i], 20, -373897302);
+    a = md5gg(a, b, c, d, x[i + 5], 5, -701558691);
+    d = md5gg(d, a, b, c, x[i + 10], 9, 38016083);
+    c = md5gg(c, d, a, b, x[i + 15], 14, -660478335);
+    b = md5gg(b, c, d, a, x[i + 4], 20, -405537848);
+    a = md5gg(a, b, c, d, x[i + 9], 5, 568446438);
+    d = md5gg(d, a, b, c, x[i + 14], 9, -1019803690);
+    c = md5gg(c, d, a, b, x[i + 3], 14, -187363961);
+    b = md5gg(b, c, d, a, x[i + 8], 20, 1163531501);
+    a = md5gg(a, b, c, d, x[i + 13], 5, -1444681467);
+    d = md5gg(d, a, b, c, x[i + 2], 9, -51403784);
+    c = md5gg(c, d, a, b, x[i + 7], 14, 1735328473);
+    b = md5gg(b, c, d, a, x[i + 12], 20, -1926607734);
+    a = md5hh(a, b, c, d, x[i + 5], 4, -378558);
+    d = md5hh(d, a, b, c, x[i + 8], 11, -2022574463);
+    c = md5hh(c, d, a, b, x[i + 11], 16, 1839030562);
+    b = md5hh(b, c, d, a, x[i + 14], 23, -35309556);
+    a = md5hh(a, b, c, d, x[i + 1], 4, -1530992060);
+    d = md5hh(d, a, b, c, x[i + 4], 11, 1272893353);
+    c = md5hh(c, d, a, b, x[i + 7], 16, -155497632);
+    b = md5hh(b, c, d, a, x[i + 10], 23, -1094730640);
+    a = md5hh(a, b, c, d, x[i + 13], 4, 681279174);
+    d = md5hh(d, a, b, c, x[i], 11, -358537222);
+    c = md5hh(c, d, a, b, x[i + 3], 16, -722521979);
+    b = md5hh(b, c, d, a, x[i + 6], 23, 76029189);
+    a = md5hh(a, b, c, d, x[i + 9], 4, -640364487);
+    d = md5hh(d, a, b, c, x[i + 12], 11, -421815835);
+    c = md5hh(c, d, a, b, x[i + 15], 16, 530742520);
+    b = md5hh(b, c, d, a, x[i + 2], 23, -995338651);
+    a = md5ii(a, b, c, d, x[i], 6, -198630844);
+    d = md5ii(d, a, b, c, x[i + 7], 10, 1126891415);
+    c = md5ii(c, d, a, b, x[i + 14], 15, -1416354905);
+    b = md5ii(b, c, d, a, x[i + 5], 21, -57434055);
+    a = md5ii(a, b, c, d, x[i + 12], 6, 1700485571);
+    d = md5ii(d, a, b, c, x[i + 3], 10, -1894986606);
+    c = md5ii(c, d, a, b, x[i + 10], 15, -1051523);
+    b = md5ii(b, c, d, a, x[i + 1], 21, -2054922799);
+    a = md5ii(a, b, c, d, x[i + 8], 6, 1873313359);
+    d = md5ii(d, a, b, c, x[i + 15], 10, -30611744);
+    c = md5ii(c, d, a, b, x[i + 6], 15, -1560198380);
+    b = md5ii(b, c, d, a, x[i + 13], 21, 1309151649);
+    a = md5ii(a, b, c, d, x[i + 4], 6, -145523070);
+    d = md5ii(d, a, b, c, x[i + 11], 10, -1120210379);
+    c = md5ii(c, d, a, b, x[i + 2], 15, 718787259);
+    b = md5ii(b, c, d, a, x[i + 9], 21, -343485551);
+    a = safeAdd(a, olda);
+    b = safeAdd(b, oldb);
+    c = safeAdd(c, oldc);
+    d = safeAdd(d, oldd);
+  }
+
+  return [a, b, c, d];
+}
+/*
+ * Convert an array bytes to an array of little-endian words
+ * Characters >255 have their high-byte silently ignored.
+ */
+
+
+function bytesToWords(input) {
+  if (input.length === 0) {
+    return [];
+  }
+
+  var length8 = input.length * 8;
+  var output = new Uint32Array(getOutputLength(length8));
+
+  for (var i = 0; i < length8; i += 8) {
+    output[i >> 5] |= (input[i / 8] & 0xff) << i % 32;
+  }
+
+  return output;
+}
+/*
+ * Add integers, wrapping at 2^32. This uses 16-bit operations internally
+ * to work around bugs in some JS interpreters.
+ */
+
+
+function safeAdd(x, y) {
+  var lsw = (x & 0xffff) + (y & 0xffff);
+  var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+  return msw << 16 | lsw & 0xffff;
+}
+/*
+ * Bitwise rotate a 32-bit number to the left.
+ */
+
+
+function bitRotateLeft(num, cnt) {
+  return num << cnt | num >>> 32 - cnt;
+}
+/*
+ * These functions implement the four basic operations the algorithm uses.
+ */
+
+
+function md5cmn(q, a, b, x, s, t) {
+  return safeAdd(bitRotateLeft(safeAdd(safeAdd(a, q), safeAdd(x, t)), s), b);
+}
+
+function md5ff(a, b, c, d, x, s, t) {
+  return md5cmn(b & c | ~b & d, a, b, x, s, t);
+}
+
+function md5gg(a, b, c, d, x, s, t) {
+  return md5cmn(b & d | c & ~d, a, b, x, s, t);
+}
+
+function md5hh(a, b, c, d, x, s, t) {
+  return md5cmn(b ^ c ^ d, a, b, x, s, t);
+}
+
+function md5ii(a, b, c, d, x, s, t) {
+  return md5cmn(c ^ (b | ~d), a, b, x, s, t);
+}
+
+var _default = md5;
+exports.default = _default;
+},{}],"../node_modules/uuid/dist/esm-browser/v3.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _v = _interopRequireDefault(require("./v35.js"));
+
+var _md = _interopRequireDefault(require("./md5.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var v3 = (0, _v.default)('v3', 0x30, _md.default);
+var _default = v3;
+exports.default = _default;
+},{"./v35.js":"../node_modules/uuid/dist/esm-browser/v35.js","./md5.js":"../node_modules/uuid/dist/esm-browser/md5.js"}],"../node_modules/uuid/dist/esm-browser/v4.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _rng = _interopRequireDefault(require("./rng.js"));
+
+var _stringify = _interopRequireDefault(require("./stringify.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function v4(options, buf, offset) {
+  options = options || {};
+
+  var rnds = options.random || (options.rng || _rng.default)(); // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+
+
+  rnds[6] = rnds[6] & 0x0f | 0x40;
+  rnds[8] = rnds[8] & 0x3f | 0x80; // Copy bytes to buffer, if provided
+
+  if (buf) {
+    offset = offset || 0;
+
+    for (var i = 0; i < 16; ++i) {
+      buf[offset + i] = rnds[i];
+    }
+
+    return buf;
+  }
+
+  return (0, _stringify.default)(rnds);
+}
+
+var _default = v4;
+exports.default = _default;
+},{"./rng.js":"../node_modules/uuid/dist/esm-browser/rng.js","./stringify.js":"../node_modules/uuid/dist/esm-browser/stringify.js"}],"../node_modules/uuid/dist/esm-browser/sha1.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+// Adapted from Chris Veness' SHA1 code at
+// http://www.movable-type.co.uk/scripts/sha1.html
+function f(s, x, y, z) {
+  switch (s) {
+    case 0:
+      return x & y ^ ~x & z;
+
+    case 1:
+      return x ^ y ^ z;
+
+    case 2:
+      return x & y ^ x & z ^ y & z;
+
+    case 3:
+      return x ^ y ^ z;
+  }
+}
+
+function ROTL(x, n) {
+  return x << n | x >>> 32 - n;
+}
+
+function sha1(bytes) {
+  var K = [0x5a827999, 0x6ed9eba1, 0x8f1bbcdc, 0xca62c1d6];
+  var H = [0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0];
+
+  if (typeof bytes === 'string') {
+    var msg = unescape(encodeURIComponent(bytes)); // UTF8 escape
+
+    bytes = [];
+
+    for (var i = 0; i < msg.length; ++i) {
+      bytes.push(msg.charCodeAt(i));
+    }
+  } else if (!Array.isArray(bytes)) {
+    // Convert Array-like to Array
+    bytes = Array.prototype.slice.call(bytes);
+  }
+
+  bytes.push(0x80);
+  var l = bytes.length / 4 + 2;
+  var N = Math.ceil(l / 16);
+  var M = new Array(N);
+
+  for (var _i = 0; _i < N; ++_i) {
+    var arr = new Uint32Array(16);
+
+    for (var j = 0; j < 16; ++j) {
+      arr[j] = bytes[_i * 64 + j * 4] << 24 | bytes[_i * 64 + j * 4 + 1] << 16 | bytes[_i * 64 + j * 4 + 2] << 8 | bytes[_i * 64 + j * 4 + 3];
+    }
+
+    M[_i] = arr;
+  }
+
+  M[N - 1][14] = (bytes.length - 1) * 8 / Math.pow(2, 32);
+  M[N - 1][14] = Math.floor(M[N - 1][14]);
+  M[N - 1][15] = (bytes.length - 1) * 8 & 0xffffffff;
+
+  for (var _i2 = 0; _i2 < N; ++_i2) {
+    var W = new Uint32Array(80);
+
+    for (var t = 0; t < 16; ++t) {
+      W[t] = M[_i2][t];
+    }
+
+    for (var _t = 16; _t < 80; ++_t) {
+      W[_t] = ROTL(W[_t - 3] ^ W[_t - 8] ^ W[_t - 14] ^ W[_t - 16], 1);
+    }
+
+    var a = H[0];
+    var b = H[1];
+    var c = H[2];
+    var d = H[3];
+    var e = H[4];
+
+    for (var _t2 = 0; _t2 < 80; ++_t2) {
+      var s = Math.floor(_t2 / 20);
+      var T = ROTL(a, 5) + f(s, b, c, d) + e + K[s] + W[_t2] >>> 0;
+      e = d;
+      d = c;
+      c = ROTL(b, 30) >>> 0;
+      b = a;
+      a = T;
+    }
+
+    H[0] = H[0] + a >>> 0;
+    H[1] = H[1] + b >>> 0;
+    H[2] = H[2] + c >>> 0;
+    H[3] = H[3] + d >>> 0;
+    H[4] = H[4] + e >>> 0;
+  }
+
+  return [H[0] >> 24 & 0xff, H[0] >> 16 & 0xff, H[0] >> 8 & 0xff, H[0] & 0xff, H[1] >> 24 & 0xff, H[1] >> 16 & 0xff, H[1] >> 8 & 0xff, H[1] & 0xff, H[2] >> 24 & 0xff, H[2] >> 16 & 0xff, H[2] >> 8 & 0xff, H[2] & 0xff, H[3] >> 24 & 0xff, H[3] >> 16 & 0xff, H[3] >> 8 & 0xff, H[3] & 0xff, H[4] >> 24 & 0xff, H[4] >> 16 & 0xff, H[4] >> 8 & 0xff, H[4] & 0xff];
+}
+
+var _default = sha1;
+exports.default = _default;
+},{}],"../node_modules/uuid/dist/esm-browser/v5.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _v = _interopRequireDefault(require("./v35.js"));
+
+var _sha = _interopRequireDefault(require("./sha1.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var v5 = (0, _v.default)('v5', 0x50, _sha.default);
+var _default = v5;
+exports.default = _default;
+},{"./v35.js":"../node_modules/uuid/dist/esm-browser/v35.js","./sha1.js":"../node_modules/uuid/dist/esm-browser/sha1.js"}],"../node_modules/uuid/dist/esm-browser/nil.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = '00000000-0000-0000-0000-000000000000';
+exports.default = _default;
+},{}],"../node_modules/uuid/dist/esm-browser/version.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _validate = _interopRequireDefault(require("./validate.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function version(uuid) {
+  if (!(0, _validate.default)(uuid)) {
+    throw TypeError('Invalid UUID');
+  }
+
+  return parseInt(uuid.substr(14, 1), 16);
+}
+
+var _default = version;
+exports.default = _default;
+},{"./validate.js":"../node_modules/uuid/dist/esm-browser/validate.js"}],"../node_modules/uuid/dist/esm-browser/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "v1", {
+  enumerable: true,
+  get: function () {
+    return _v.default;
+  }
+});
+Object.defineProperty(exports, "v3", {
+  enumerable: true,
+  get: function () {
+    return _v2.default;
+  }
+});
+Object.defineProperty(exports, "v4", {
+  enumerable: true,
+  get: function () {
+    return _v3.default;
+  }
+});
+Object.defineProperty(exports, "v5", {
+  enumerable: true,
+  get: function () {
+    return _v4.default;
+  }
+});
+Object.defineProperty(exports, "NIL", {
+  enumerable: true,
+  get: function () {
+    return _nil.default;
+  }
+});
+Object.defineProperty(exports, "version", {
+  enumerable: true,
+  get: function () {
+    return _version.default;
+  }
+});
+Object.defineProperty(exports, "validate", {
+  enumerable: true,
+  get: function () {
+    return _validate.default;
+  }
+});
+Object.defineProperty(exports, "stringify", {
+  enumerable: true,
+  get: function () {
+    return _stringify.default;
+  }
+});
+Object.defineProperty(exports, "parse", {
+  enumerable: true,
+  get: function () {
+    return _parse.default;
+  }
+});
+
+var _v = _interopRequireDefault(require("./v1.js"));
+
+var _v2 = _interopRequireDefault(require("./v3.js"));
+
+var _v3 = _interopRequireDefault(require("./v4.js"));
+
+var _v4 = _interopRequireDefault(require("./v5.js"));
+
+var _nil = _interopRequireDefault(require("./nil.js"));
+
+var _version = _interopRequireDefault(require("./version.js"));
+
+var _validate = _interopRequireDefault(require("./validate.js"));
+
+var _stringify = _interopRequireDefault(require("./stringify.js"));
+
+var _parse = _interopRequireDefault(require("./parse.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./v1.js":"../node_modules/uuid/dist/esm-browser/v1.js","./v3.js":"../node_modules/uuid/dist/esm-browser/v3.js","./v4.js":"../node_modules/uuid/dist/esm-browser/v4.js","./v5.js":"../node_modules/uuid/dist/esm-browser/v5.js","./nil.js":"../node_modules/uuid/dist/esm-browser/nil.js","./version.js":"../node_modules/uuid/dist/esm-browser/version.js","./validate.js":"../node_modules/uuid/dist/esm-browser/validate.js","./stringify.js":"../node_modules/uuid/dist/esm-browser/stringify.js","./parse.js":"../node_modules/uuid/dist/esm-browser/parse.js"}],"storage.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setAllResult = exports.getAllResult = exports.setMe = exports.getOrCreateMe = exports.getMe = void 0;
+
+var _uuid = require("uuid");
+
+var userKey = 'user';
+
+var getMe = function getMe() {
+  var item = localStorage.getItem(userKey);
+
+  if (item) {
+    return JSON.parse(item);
+  } else {
+    return undefined;
+  }
+};
+
+exports.getMe = getMe;
+
+var getOrCreateMe = function getOrCreateMe() {
+  var me = getMe();
+
+  if (me === undefined) {
+    return setMe({
+      id: (0, _uuid.v4)(),
+      name: ''
+    });
+  } else {
+    return me;
+  }
+};
+
+exports.getOrCreateMe = getOrCreateMe;
+
+var setMe = function setMe(user) {
+  var id = user.id,
+      name = user.name;
+
+  if (id === undefined) {
+    throw new TypeError("id must be exist");
+  }
+
+  if (name === undefined) {
+    name = '';
+  }
+
+  var newUser = {
+    id: id,
+    name: name
+  };
+  localStorage.setItem(userKey, JSON.stringify(newUser));
+  return newUser;
+};
+
+exports.setMe = setMe;
+var resultKey = 'result';
+var initialAllResult = {
+  me: []
+};
+
+var getAllResult = function getAllResult() {
+  var item = localStorage.getItem(resultKey);
+  return item === null ? initialAllResult : JSON.parse(item);
+};
+
+exports.getAllResult = getAllResult;
+
+var setAllResult = function setAllResult(result) {
+  localStorage.setItem(resultKey, JSON.stringify(result));
+};
+
+exports.setAllResult = setAllResult;
+var result = {
+  mine: [{
+    gameStatus: 'cleared',
+    moveCount: 100,
+    time: 1234,
+    max: 2048
+  }, {
+    gameStatus: 'cleared',
+    moveCount: 101,
+    time: 1234,
+    max: 2048
+  }]
+};
+},{"uuid":"../node_modules/uuid/dist/esm-browser/index.js"}],"App.tsx":[function(require,module,exports) {
+
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30993,68 +32996,203 @@ var _jsxRuntime = require("react/jsx-runtime");
 
 var _react = _interopRequireDefault(require("react"));
 
+var _swipeListener = _interopRequireDefault(require("swipe-listener"));
+
+var _main = require("./main");
+
+var _storage = require("./storage");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var border = {
-  border: '1px black solid'
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var global = {
+  keys: []
 };
 
-function getInitialValue() {
-  return Math.random() < 0.5 ? 2 : 4;
+function useUserName() {
+  var user = (0, _storage.getOrCreateMe)();
+
+  var _React$useState = _react.default.useState(user.name),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      name = _React$useState2[0],
+      setName = _React$useState2[1];
+
+  var set = function set(n) {
+    setName(n);
+    (0, _storage.setMe)(_objectSpread({}, user, {
+      name: n
+    }));
+  };
+
+  return [name, set];
 }
 
-function getInitialBoardValues() {
-  var values = new Set();
-
-  while (values.size < 2) {
-    values.add(Math.floor(Math.random() * 100) % 16);
-  }
-
-  return values;
+function setMyBest(result) {
+  var allResult = (0, _storage.getAllResult)();
+  allResult.me.push(result);
+  (0, _storage.setAllResult)(allResult);
+  return allResult;
 }
 
-var initial = getInitialBoardValues();
-var board = new Array(16).fill(undefined).map(function (v, i) {
-  return initial.has(i) ? getInitialValue() : undefined;
-});
-var xy = board.reduce(function (acc, curr, i) {
-  if (i % 4 === 0) {
-    acc.push([curr]);
-  } else {
-    acc[acc.length - 1].push(curr);
+function getMyBest(allResult) {
+  return _toConsumableArray(allResult.me).sort(function (a, b) {
+    return gameStatusSort(a, b) || timeSort(a, b) || moveCountSort(a, b);
+  }).pop();
+
+  function gameStatusSort(a, b) {
+    if (a.gameStatus === b.gameStatus) return 0;
+    if (a.gameStatus === 'cleared') return 1;
+    if (a.gameStatus === 'died') return -1;
   }
 
-  return acc;
-}, []);
+  function timeSort(a, b) {
+    return b.time - a.time;
+  }
+
+  function moveCountSort(a, b) {
+    return b.moveCount - a.moveCount;
+  }
+}
+
+function isSame(a, b) {
+  return Object.keys(a).every(function (k) {
+    return a[k] === b[k];
+  });
+}
 
 var App = function App() {
-  _react.default.useEffect(function () {
-    document.addEventListener('keydown', function (e) {});
-  }, []);
+  var _React$useState3 = _react.default.useState(false),
+      _React$useState4 = _slicedToArray(_React$useState3, 2),
+      isStarted = _React$useState4[0],
+      setIsStarted = _React$useState4[1];
 
-  return (0, _jsxRuntime.jsxs)("div", {
-    children: [(0, _jsxRuntime.jsx)("input", {}, void 0), (0, _jsxRuntime.jsx)("table", Object.assign({
-      style: border
+  var _useUserName = useUserName(),
+      _useUserName2 = _slicedToArray(_useUserName, 2),
+      name = _useUserName2[0],
+      setName = _useUserName2[1];
+
+  _react.default.useEffect(function () {
+    if (!isStarted) return;
+    var game = new _main.Game();
+    game.onGameEnd(function (result) {
+      setIsStarted(false);
+      var text = "game over!\nresult: ".concat(result.gameStatus === 'cleared' ? 'クリア' : '詰んだ', "\ntime: ").concat(result.formatted, "\n\u52D5\u304B\u3057\u305F\u56DE\u6570: ").concat(result.moveCount, "\n");
+      var allResult = setMyBest(result);
+
+      if (isSame(result, getMyBest(allResult))) {
+        text += '\n\n自己べ更新!!';
+      }
+
+      alert(text);
+    });
+
+    var keydownListener = function keydownListener(e) {
+      global.keys[e.keyCode] = true;
+
+      if (global.keys[38]) {
+        // up
+        game.move(0);
+      } else if (global.keys[39]) {
+        // right
+        game.move(1);
+      } else if (global.keys[40]) {
+        // down
+        game.move(2);
+      } else if (global.keys[37]) {
+        // left
+        game.move(3);
+      } else {
+        return;
+      }
+    };
+
+    var keyupListener = function keyupListener(e) {
+      global.keys[e.keyCode] = false;
+    };
+
+    document.addEventListener('keydown', keydownListener);
+    document.addEventListener('keyup', keyupListener);
+    var swipeListener = (0, _swipeListener.default)(document);
+    document.addEventListener('swipe', function (e) {
+      var directions = e.detail.directions;
+
+      if (directions.top) {
+        game.move(0);
+      } else if (directions.right) {
+        game.move(1);
+      } else if (directions.bottom) {
+        game.move(2);
+      } else if (directions.left) {
+        game.move(3);
+      }
+    });
+    return function () {
+      document.removeEventListener('keydown', keydownListener);
+      document.removeEventListener('keyup', keyupListener);
+      swipeListener.off();
+    };
+  });
+
+  return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+    children: [(0, _jsxRuntime.jsx)("div", Object.assign({
+      className: "centering"
     }, {
-      children: (0, _jsxRuntime.jsx)("tbody", {
-        children: xy.map(function (y, i) {
-          return (0, _jsxRuntime.jsx)("tr", {
-            children: y.map(function (x, i) {
-              return (0, _jsxRuntime.jsx)("td", Object.assign({
-                style: border
-              }, {
-                children: x !== null && x !== void 0 ? x : '_'
-              }), i);
-            })
-          }, i);
-        })
+      children: (0, _jsxRuntime.jsx)("div", {
+        id: "gameBoard",
+        className: "flex-container"
       }, void 0)
+    }), void 0), (0, _jsxRuntime.jsxs)("div", Object.assign({
+      className: "centering"
+    }, {
+      children: ["Enter Your Name:", ' ', (0, _jsxRuntime.jsx)("input", {
+        type: "text",
+        onChange: function onChange(e) {
+          return setName(e.target.value);
+        },
+        value: name
+      }, void 0)]
+    }), void 0), (0, _jsxRuntime.jsx)("div", Object.assign({
+      className: "centering"
+    }, {
+      children: !isStarted && (0, _jsxRuntime.jsx)("button", Object.assign({
+        disabled: name === '',
+        onClick: function onClick() {
+          return setIsStarted(true);
+        }
+      }, {
+        children: "start"
+      }), void 0)
     }), void 0)]
   }, void 0);
 };
 
 exports.App = App;
-},{"react/jsx-runtime":"../node_modules/react/jsx-runtime.js","react":"../node_modules/react/index.js"}],"index.tsx":[function(require,module,exports) {
+},{"react/jsx-runtime":"../node_modules/react/jsx-runtime.js","react":"../node_modules/react/index.js","swipe-listener":"../node_modules/swipe-listener/dist/swipe-listener.min.js","./main":"main.js","./storage":"storage.ts"}],"index.tsx":[function(require,module,exports) {
 "use strict";
 
 var _jsxRuntime = require("react/jsx-runtime");
@@ -31094,7 +33232,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60840" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51838" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

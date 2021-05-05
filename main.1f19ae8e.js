@@ -117,8 +117,26 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"assets/sisisin.jpg":[function(require,module,exports) {
-module.exports = "/sisisin.73143ace.jpg";
+})({"assets/sisisin2.png":[function(require,module,exports) {
+module.exports = "/sisisin2.a64cf997.png";
+},{}],"assets/sisisin4.png":[function(require,module,exports) {
+module.exports = "/sisisin4.00d06a0c.png";
+},{}],"assets/sisisin8.jpg":[function(require,module,exports) {
+module.exports = "/sisisin8.fdea3190.jpg";
+},{}],"assets/sisisin16.jpg":[function(require,module,exports) {
+module.exports = "/sisisin16.42bc8c65.jpg";
+},{}],"assets/sisisin32.gif":[function(require,module,exports) {
+module.exports = "/sisisin32.5bc0a6d5.gif";
+},{}],"assets/sisisin64.gif":[function(require,module,exports) {
+module.exports = "/sisisin64.f6b1b47c.gif";
+},{}],"assets/sisisin128.jpg":[function(require,module,exports) {
+module.exports = "/sisisin128.b9d991b5.jpg";
+},{}],"assets/sisisin256.png":[function(require,module,exports) {
+module.exports = "/sisisin256.2d0ec59c.png";
+},{}],"assets/sisisin512.gif":[function(require,module,exports) {
+module.exports = "/sisisin512.2d66e48e.gif";
+},{}],"assets/sisisin1024.jpg":[function(require,module,exports) {
+module.exports = "/sisisin1024.f1d3be56.jpg";
 },{}],"assets/sisisin2048.jpg":[function(require,module,exports) {
 module.exports = "/sisisin2048.9b3f5ecf.jpg";
 },{}],"../node_modules/process/browser.js":[function(require,module,exports) {
@@ -335,9 +353,32 @@ process.umask = function () {
 var process = require("process");
 "use strict";
 
-var _sisisin = _interopRequireDefault(require("./assets/sisisin.jpg"));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Game = void 0;
 
-var _sisisin2 = _interopRequireDefault(require("./assets/sisisin2048.jpg"));
+var _sisisin = _interopRequireDefault(require("./assets/sisisin2.png"));
+
+var _sisisin2 = _interopRequireDefault(require("./assets/sisisin4.png"));
+
+var _sisisin3 = _interopRequireDefault(require("./assets/sisisin8.jpg"));
+
+var _sisisin4 = _interopRequireDefault(require("./assets/sisisin16.jpg"));
+
+var _sisisin5 = _interopRequireDefault(require("./assets/sisisin32.gif"));
+
+var _sisisin6 = _interopRequireDefault(require("./assets/sisisin64.gif"));
+
+var _sisisin7 = _interopRequireDefault(require("./assets/sisisin128.jpg"));
+
+var _sisisin8 = _interopRequireDefault(require("./assets/sisisin256.png"));
+
+var _sisisin9 = _interopRequireDefault(require("./assets/sisisin512.gif"));
+
+var _sisisin10 = _interopRequireDefault(require("./assets/sisisin1024.jpg"));
+
+var _sisisin11 = _interopRequireDefault(require("./assets/sisisin2048.jpg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -352,6 +393,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+//*
+var isDebug = false;
+/*/
+const isDebug = true;
+//*/
 
 var global = {
   keys: []
@@ -463,6 +510,13 @@ var State = /*#__PURE__*/function () {
       }
 
       return true;
+    }
+  }, {
+    key: "isClear",
+    value: function isClear() {
+      return this.board.some(function (b) {
+        return b === 2048;
+      });
     } // 空き領域を配列にして返す
 
   }, {
@@ -586,12 +640,14 @@ var Game = /*#__PURE__*/function () {
     this.screen = document.getElementById('gameBoard');
     this.animation = new Animation(this.screen);
     this.state = new State();
-    var v = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]; // 初期状態として 2 つ cell を入れておく
+    var v = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048];
+    var fillCount = isDebug ? v.length : 2; // 初期状態として 2 つ cell を入れておく
 
-    for (var i = 0; i < v.length; i++) {
+    for (var i = 0; i < fillCount; i++) {
+      var _v$i;
+
       var empty = this.state.getEmptyCells();
-      var num = v[i]; // const num = Math.random() < 0.9 ? 2 : 4;
-
+      var num = isDebug ? (_v$i = v[i]) !== null && _v$i !== void 0 ? _v$i : 0 : Math.random() < 0.9 ? 2 : 4;
       var index = empty[Math.floor(Math.random() * empty.length)];
       var y = Math.floor(index / 4),
           x = index % 4;
@@ -618,7 +674,15 @@ var Game = /*#__PURE__*/function () {
 
         nextState.rewriteCells(y, x, num); // アニメーション
 
-        this.animation.update(nextState, y, x, num); // state を更新
+        this.animation.update(nextState, y, x, num, function () {
+          if (nextState.isClear()) {
+            alert('clear!');
+          }
+
+          if (nextState.isDie()) {
+            alert('詰んだ');
+          }
+        }); // state を更新
 
         this.state = nextState;
       }
@@ -627,6 +691,8 @@ var Game = /*#__PURE__*/function () {
 
   return Game;
 }();
+
+exports.Game = Game;
 
 var Animation = /*#__PURE__*/function () {
   function Animation(screen) {
@@ -663,6 +729,7 @@ var Animation = /*#__PURE__*/function () {
     value: function update(state, addY, addX, addNum) {
       var _this = this;
 
+      var cb = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : function () {};
       // アニメーション開始
       this.finish = false; // 移動するアニメーション
 
@@ -834,6 +901,8 @@ var Animation = /*#__PURE__*/function () {
             } finally {
               _iterator3.f();
             }
+
+            cb();
           }
         };
 
@@ -968,16 +1037,8 @@ var Cell = /*#__PURE__*/function () {
   }, {
     key: "changeAttrib",
     value: function changeAttrib(num) {
-      this.elem.textContent = num > 0 ? num : '';
-
-      if (num === 0) {
-        var img = document.createElement('img');
-        img.src = _sisisin.default;
-        img.width = '100';
-        this.elem.style.backgroundImage = "url(\"".concat(_sisisin2.default, "\")");
-        this.elem.style.backgroundSize = 'cover'; // this.elem.appendChild(img);
-      }
-
+      // this.elem.textContent = num > 0 ? num : '';
+      this.elem.style.backgroundSize = 'cover';
       this.num = num;
 
       switch (num) {
@@ -987,56 +1048,67 @@ var Cell = /*#__PURE__*/function () {
           break;
 
         case 2:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin.default, "\")");
           this.elem.style.backgroundColor = '#eee';
           this.elem.style.color = '#000';
           break;
 
         case 4:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin2.default, "\")");
           this.elem.style.backgroundColor = '#eec';
           this.elem.style.color = '#000';
           break;
 
         case 8:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin3.default, "\")");
           this.elem.style.backgroundColor = '#f93';
           this.elem.style.color = '#fff';
           break;
 
         case 16:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin4.default, "\")");
           this.elem.style.backgroundColor = '#c66';
           this.elem.style.color = '#fff';
           break;
 
         case 32:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin5.default, "\")");
           this.elem.style.backgroundColor = '#c33';
           this.elem.style.color = '#fff';
           break;
 
         case 64:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin6.default, "\")");
           this.elem.style.backgroundColor = '#c11';
           this.elem.style.color = '#fff';
           break;
 
         case 128:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin7.default, "\")");
           this.elem.style.backgroundColor = '#fc6';
           this.elem.style.color = '#fff';
           break;
 
         case 256:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin8.default, "\")");
           this.elem.style.backgroundColor = '#fc5';
           this.elem.style.color = '#fff';
           break;
 
         case 512:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin9.default, "\")");
           this.elem.style.backgroundColor = '#fc3';
           this.elem.style.color = '#fff';
           break;
 
         case 1024:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin10.default, "\")");
           this.elem.style.backgroundColor = '#fc1';
           this.elem.style.color = '#fff';
           break;
 
         case 2048:
+          this.elem.style.backgroundImage = "url(\"".concat(_sisisin11.default, "\")");
           this.elem.style.backgroundColor = '#fc0';
           this.elem.style.color = '#fff';
           break;
@@ -1057,9 +1129,9 @@ var Cell = /*#__PURE__*/function () {
   }]);
 
   return Cell;
-}();
+}(); // const game = new Game();
+// key 入力
 
-var game = new Game(); // key 入力
 
 document.addEventListener('keydown', function (e) {
   global.keys[e.keyCode] = true;
@@ -1083,7 +1155,7 @@ document.addEventListener('keydown', function (e) {
 document.addEventListener('keyup', function (e) {
   global.keys[e.keyCode] = false;
 });
-},{"./assets/sisisin.jpg":"assets/sisisin.jpg","./assets/sisisin2048.jpg":"assets/sisisin2048.jpg","process":"../node_modules/process/browser.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./assets/sisisin2.png":"assets/sisisin2.png","./assets/sisisin4.png":"assets/sisisin4.png","./assets/sisisin8.jpg":"assets/sisisin8.jpg","./assets/sisisin16.jpg":"assets/sisisin16.jpg","./assets/sisisin32.gif":"assets/sisisin32.gif","./assets/sisisin64.gif":"assets/sisisin64.gif","./assets/sisisin128.jpg":"assets/sisisin128.jpg","./assets/sisisin256.png":"assets/sisisin256.png","./assets/sisisin512.gif":"assets/sisisin512.gif","./assets/sisisin1024.jpg":"assets/sisisin1024.jpg","./assets/sisisin2048.jpg":"assets/sisisin2048.jpg","process":"../node_modules/process/browser.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -1111,7 +1183,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60840" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51838" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
