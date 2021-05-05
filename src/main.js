@@ -10,6 +10,12 @@ import sisisin512 from './assets/sisisin512.gif';
 import sisisin1024 from './assets/sisisin1024.jpg';
 import sisisin2048 from './assets/sisisin2048.jpg';
 
+//*
+const isDebug = false;
+/*/
+const isDebug = true;
+//*/
+
 let global = {
   keys: [],
 };
@@ -99,6 +105,9 @@ class State {
       }
     }
     return true;
+  }
+  isClear() {
+    return this.board.some((b) => b === 2048);
   }
   // 空き領域を配列にして返す
   getEmptyCells() {
@@ -194,12 +203,12 @@ class Game {
     this.animation = new Animation(this.screen);
     this.state = new State();
     const v = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048];
+    const fillCount = isDebug ? v.length : 2;
     // 初期状態として 2 つ cell を入れておく
-    for (let i = 0; i < 2; i++) {
-      // for (let i = 0; i < v.length; i++) {
+    for (let i = 0; i < fillCount; i++) {
       const empty = this.state.getEmptyCells();
-      // const num = v[i] || 0;
-      const num = Math.random() < 0.9 ? 2 : 4;
+
+      const num = isDebug ? v[i] ?? 0 : Math.random() < 0.9 ? 2 : 4;
       const index = empty[Math.floor(Math.random() * empty.length)];
       const y = Math.floor(index / 4),
         x = index % 4;
@@ -225,7 +234,14 @@ class Game {
       nextState.rewriteCells(y, x, num);
 
       // アニメーション
-      this.animation.update(nextState, y, x, num);
+      this.animation.update(nextState, y, x, num, () => {
+        if (nextState.isClear()) {
+          alert('clear!');
+        }
+        if (nextState.isDie()) {
+          alert('詰んだ');
+        }
+      });
 
       // state を更新
       this.state = nextState;
@@ -258,7 +274,7 @@ class Animation {
   // 指定したセル群を移動させる -> 合体させる -> 新しい数字が表れる
   // 引数：State クラス
   // 最後に merge したところから数字を登場させる
-  update(state, addY, addX, addNum) {
+  update(state, addY, addX, addNum, cb = () => {}) {
     // アニメーション開始
     this.finish = false;
     // 移動するアニメーション
@@ -363,6 +379,7 @@ class Animation {
             this.cells[index] = null;
             this.pos.delete(index);
           }
+          cb();
         }
       };
       setTimeout(proc, Settings.ANIMATION_GEN_TIME * 1.1);
