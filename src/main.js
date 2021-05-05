@@ -10,15 +10,11 @@ import sisisin512 from './assets/sisisin512.gif';
 import sisisin1024 from './assets/sisisin1024.jpg';
 import sisisin2048 from './assets/sisisin2048.jpg';
 
-//*
+/*
 const isDebug = false;
 /*/
 const isDebug = true;
 //*/
-
-let global = {
-  keys: [],
-};
 
 let Settings = {
   CELL_WIDTH: 100,
@@ -109,6 +105,9 @@ class State {
   isClear() {
     return this.board.some((b) => b === 2048);
   }
+  maxCell() {
+    return [...this.board].sort((a, b) => a - b).pop();
+  }
   // 空き領域を配列にして返す
   getEmptyCells() {
     let result = [];
@@ -196,8 +195,12 @@ class State {
 }
 
 // Game 全体を管理するクラス
-class Game {
+export class Game {
   constructor() {
+    this.listeners = [];
+    this.startedTime = new Date();
+    this.moveCount = 0;
+
     // 制御するセルを指定
     this.screen = document.getElementById('gameBoard');
     this.animation = new Animation(this.screen);
@@ -221,6 +224,8 @@ class Game {
     if (this.state.isDie()) return;
     if (!this.animation.finish) return;
     let nextState = this.state.calcNextState(dir);
+    const modifiedTime = new Date();
+
     // いずれかのセルが動いたならば
     if (nextState.moveCells.length > 0) {
       // ランダムに数字を挿入する処理
@@ -235,17 +240,46 @@ class Game {
 
       // アニメーション
       this.animation.update(nextState, y, x, num, () => {
-        if (nextState.isClear()) {
-          alert('clear!');
-        }
-        if (nextState.isDie()) {
-          alert('詰んだ');
-        }
+        this.listeners.forEach((cb) => cb(this.getGameResult(nextState, modifiedTime)));
       });
 
       // state を更新
       this.state = nextState;
+      this.moveCount++;
+      if (isDebug) {
+        console.log(this.getGameResult(this.state, modifiedTime));
+      }
     }
+  }
+
+  getGameResult(state, time) {
+    const span = time - this.startedTime;
+    const d = Math.floor(span / (1000 * 60 * 60 * 24));
+    const h = Math.floor(span / (1000 * 60 * 60));
+    const m = Math.floor(span / (1000 * 60));
+    const s = Math.floor(span / 1000);
+
+    const ds = fmt(d, '日');
+    const hs = fmt(h, '時間');
+    const ms = fmt(m, '分');
+    const ss = s;
+    const mss = fmt(span, '秒');
+    const formatted = `${ds}${hs}${ms}${ss}.${mss}`;
+    return {
+      gameStatus: state.isClear() ? 'cleared' : state.isDie() ? 'died' : undefined,
+      moveCount: this.moveCount,
+      time: span,
+      formatted,
+      max: state.maxCell(),
+    };
+
+    function fmt(v, suf) {
+      return v > 0 ? `${v}${suf}` : '';
+    }
+  }
+
+  onGameEnd(cb) {
+    this.listeners.push(cb);
   }
 }
 
@@ -572,28 +606,3 @@ class Cell {
     return result;
   }
 }
-
-const game = new Game();
-
-// key 入力
-document.addEventListener('keydown', (e) => {
-  global.keys[e.keyCode] = true;
-  if (global.keys[38]) {
-    // up
-    game.move(0);
-  } else if (global.keys[39]) {
-    // right
-    game.move(1);
-  } else if (global.keys[40]) {
-    // down
-    game.move(2);
-  } else if (global.keys[37]) {
-    // left
-    game.move(3);
-  } else {
-    return;
-  }
-});
-document.addEventListener('keyup', (e) => {
-  global.keys[e.keyCode] = false;
-});
