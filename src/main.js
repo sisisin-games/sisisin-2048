@@ -1,3 +1,15 @@
+import sisisin2 from './assets/sisisin2.png';
+import sisisin4 from './assets/sisisin4.png';
+import sisisin8 from './assets/sisisin8.jpg';
+import sisisin16 from './assets/sisisin16.jpg';
+import sisisin32 from './assets/sisisin32.gif';
+import sisisin64 from './assets/sisisin64.gif';
+import sisisin128 from './assets/sisisin128.jpg';
+import sisisin256 from './assets/sisisin256.png';
+import sisisin512 from './assets/sisisin512.gif';
+import sisisin1024 from './assets/sisisin1024.jpg';
+import sisisin2048 from './assets/sisisin2048.jpg';
+
 let global = {
   keys: [],
 };
@@ -181,9 +193,12 @@ class Game {
     this.screen = document.getElementById('gameBoard');
     this.animation = new Animation(this.screen);
     this.state = new State();
+    const v = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048];
     // 初期状態として 2 つ cell を入れておく
     for (let i = 0; i < 2; i++) {
+      // for (let i = 0; i < v.length; i++) {
       const empty = this.state.getEmptyCells();
+      // const num = v[i] || 0;
       const num = Math.random() < 0.9 ? 2 : 4;
       const index = empty[Math.floor(Math.random() * empty.length)];
       const y = Math.floor(index / 4),
@@ -464,7 +479,9 @@ class Cell {
   }
   // セルの値を変更する
   changeAttrib(num) {
-    this.elem.textContent = num > 0 ? num : '';
+    // this.elem.textContent = num > 0 ? num : '';
+    this.elem.style.backgroundSize = 'cover';
+
     this.num = num;
     switch (num) {
       case 0:
@@ -472,46 +489,57 @@ class Cell {
         this.elem.style.color = '#000';
         break;
       case 2:
+        this.elem.style.backgroundImage = `url("${sisisin2}")`;
         this.elem.style.backgroundColor = '#eee';
         this.elem.style.color = '#000';
         break;
       case 4:
+        this.elem.style.backgroundImage = `url("${sisisin4}")`;
         this.elem.style.backgroundColor = '#eec';
         this.elem.style.color = '#000';
         break;
       case 8:
+        this.elem.style.backgroundImage = `url("${sisisin8}")`;
         this.elem.style.backgroundColor = '#f93';
         this.elem.style.color = '#fff';
         break;
       case 16:
+        this.elem.style.backgroundImage = `url("${sisisin16}")`;
         this.elem.style.backgroundColor = '#c66';
         this.elem.style.color = '#fff';
         break;
       case 32:
+        this.elem.style.backgroundImage = `url("${sisisin32}")`;
         this.elem.style.backgroundColor = '#c33';
         this.elem.style.color = '#fff';
         break;
       case 64:
+        this.elem.style.backgroundImage = `url("${sisisin64}")`;
         this.elem.style.backgroundColor = '#c11';
         this.elem.style.color = '#fff';
         break;
       case 128:
+        this.elem.style.backgroundImage = `url("${sisisin128}")`;
         this.elem.style.backgroundColor = '#fc6';
         this.elem.style.color = '#fff';
         break;
       case 256:
+        this.elem.style.backgroundImage = `url("${sisisin256}")`;
         this.elem.style.backgroundColor = '#fc5';
         this.elem.style.color = '#fff';
         break;
       case 512:
+        this.elem.style.backgroundImage = `url("${sisisin512}")`;
         this.elem.style.backgroundColor = '#fc3';
         this.elem.style.color = '#fff';
         break;
       case 1024:
+        this.elem.style.backgroundImage = `url("${sisisin1024}")`;
         this.elem.style.backgroundColor = '#fc1';
         this.elem.style.color = '#fff';
         break;
       case 2048:
+        this.elem.style.backgroundImage = `url("${sisisin2048}")`;
         this.elem.style.backgroundColor = '#fc0';
         this.elem.style.color = '#fff';
         break;
