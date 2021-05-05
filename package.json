@@ -10,7 +10,7 @@
     "prestart": "rm -rf .cache dist",
     "start": "parcel ./src/index.html",
     "build": "parcel build ./src/index.html",
-    "predeploy": "yarn build",
+    "predeploy": "yarn build && cp ./src/CNAME ./dist",
     "deploy": "gh-pages -d dist -m 'Updates [ci skip]'"
   },
   "devDependencies": {

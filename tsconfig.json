@@ -6,7 +6,8 @@
     "module": "esnext",
     "target": "es2018",
     "noEmit": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "strict": true
   },
   "include": ["src"]
 }
