@@ -1,4 +1,5 @@
 import React from 'react';
+import SwipeListener from 'swipe-listener';
 import { Game } from './main';
 let global = {
   keys: [] as boolean[],
@@ -85,9 +86,23 @@ time: ${result.formatted}
     };
     document.addEventListener('keydown', keydownListener);
     document.addEventListener('keyup', keyupListener);
+    const swipeListener = SwipeListener(document);
+    document.addEventListener('swipe', (e: any) => {
+      const directions = e.detail.directions;
+      if (directions.top) {
+        game.move(0);
+      } else if (directions.right) {
+        game.move(1);
+      } else if (directions.bottom) {
+        game.move(2);
+      } else if (directions.left) {
+        game.move(3);
+      }
+    });
     return () => {
       document.removeEventListener('keydown', keydownListener);
       document.removeEventListener('keyup', keyupListener);
+      swipeListener.off();
     };
   });
   return (

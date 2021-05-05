@@ -10,7 +10,7 @@ import sisisin512 from './assets/sisisin512.gif';
 import sisisin1024 from './assets/sisisin1024.jpg';
 import sisisin2048 from './assets/sisisin2048.jpg';
 
-/*
+//*
 const isDebug = false;
 /*/
 const isDebug = true;
@@ -104,6 +104,9 @@ class State {
   }
   isClear() {
     return this.board.some((b) => b === 2048);
+  }
+  isGameEnd() {
+    return this.isDie() || this.isClear();
   }
   maxCell() {
     return [...this.board].sort((a, b) => a - b).pop();
@@ -240,7 +243,9 @@ export class Game {
 
       // アニメーション
       this.animation.update(nextState, y, x, num, () => {
-        this.listeners.forEach((cb) => cb(this.getGameResult(nextState, modifiedTime)));
+        if (nextState.isGameEnd()) {
+          this.listeners.forEach((cb) => cb(this.getGameResult(nextState, modifiedTime)));
+        }
       });
 
       // state を更新
