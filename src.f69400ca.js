@@ -3714,7 +3714,102 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-jsx-runtime.development.js');
 }
-},{"./cjs/react-jsx-runtime.development.js":"../node_modules/react/cjs/react-jsx-runtime.development.js"}],"../node_modules/scheduler/cjs/scheduler.development.js":[function(require,module,exports) {
+},{"./cjs/react-jsx-runtime.development.js":"../node_modules/react/cjs/react-jsx-runtime.development.js"}],"../node_modules/prevent-pull-refresh/index.js":[function(require,module,exports) {
+'use strict';
+
+(function () {
+  var isChrome = window.chrome || navigator.userAgent.match('CriOS');
+  var isTouch = 'ontouchstart' in document.documentElement;
+
+  if (!isChrome || !isTouch) {
+    return;
+  }
+
+  var supportsOverscroll = false;
+  var supportsPassive = false;
+  var lastTouchY = 0;
+  var maybePrevent = false;
+
+  try {
+    if (CSS.supports('overscroll-behavior-y', 'contain')) {
+      supportsOverscroll = true;
+    }
+  } catch (e) {}
+
+  if (supportsOverscroll) {
+    return (document.body.style.overscrollBehaviorY = 'contain');
+  } else {
+    var head = document.head || document.body;
+    var style = document.createElement('style');
+    var css =
+      '\n      ::-webkit-scrollbar {\n        width: 5px;\n      }\n      ::-webkit-scrollbar-thumb {\n        border-radius: 5px;\n        background-color: rgba(0, 0, 0, 0.2);\n      }\n      body {\n        -webkit-overflow-scrolling: auto!important;\n      }\n    ';
+    style.type = 'text/css';
+
+    if (style.styleSheet) {
+      style.styleSheet.cssText = css;
+    } else {
+      style.appendChild(document.createTextNode(css));
+    }
+
+    head.appendChild(style);
+  }
+
+  try {
+    window.addEventListener('test', null, {
+      get passive() {
+        supportsPassive = true;
+      },
+    });
+  } catch (e) {}
+
+  var setTouchStartPoint = function setTouchStartPoint(event) {
+    lastTouchY = event.touches[0].clientY;
+  };
+
+  var isScrollingUp = function isScrollingUp(event) {
+    var touchY = event.touches[0].clientY;
+    var touchYDelta = touchY - lastTouchY;
+    lastTouchY = touchY;
+    return touchYDelta > 0;
+  };
+
+  var touchstartHandler = function touchstartHandler(event) {
+    if (event.touches.length !== 1) return;
+    setTouchStartPoint(event);
+    maybePrevent = window.pageYOffset === 0;
+  };
+
+  var touchmoveHandler = function touchmoveHandler(event) {
+    if (maybePrevent) {
+      maybePrevent = false;
+
+      if (isScrollingUp(event)) {
+        return event.preventDefault();
+      }
+    }
+  };
+
+  document.addEventListener(
+    'touchstart',
+    touchstartHandler,
+    supportsPassive
+      ? {
+          passive: true,
+        }
+      : false
+  );
+  document.addEventListener(
+    'touchmove',
+    touchmoveHandler,
+    supportsPassive
+      ? {
+          passive: false,
+        }
+      : false
+  );
+})();
+
+},{}],"../node_modules/scheduler/cjs/scheduler.development.js":[function(require,module,exports) {
 /** @license React v0.20.1
  * scheduler.development.js
  *
@@ -33197,6 +33292,8 @@ exports.App = App;
 
 var _jsxRuntime = require("react/jsx-runtime");
 
+require("prevent-pull-refresh");
+
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _App = require("./App");
@@ -33204,7 +33301,7 @@ var _App = require("./App");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactDom.default.render((0, _jsxRuntime.jsx)(_App.App, {}, void 0), document.getElementById('app'));
-},{"react/jsx-runtime":"../node_modules/react/jsx-runtime.js","react-dom":"../node_modules/react-dom/index.js","./App":"App.tsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react/jsx-runtime":"../node_modules/react/jsx-runtime.js","prevent-pull-refresh":"../node_modules/prevent-pull-refresh/index.js","react-dom":"../node_modules/react-dom/index.js","./App":"App.tsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -33232,7 +33329,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51838" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50545" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
