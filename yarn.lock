@@ -4253,6 +4253,11 @@ prepend-http@^1.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
   integrity sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
 
+prevent-pull-refresh@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/prevent-pull-refresh/-/prevent-pull-refresh-1.0.6.tgz#df29ad15cf7c2816ad88d84c189987e674df72c3"
+  integrity sha512-jtpU3/h1/ftn/Jph5LIqSsTpnCfZo7zheuhmiJf9Jcugqevu4TMt0XbtJ7AU5MLZl2rTS0MVcMg91iVz7EuA+A==
+
 private@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"

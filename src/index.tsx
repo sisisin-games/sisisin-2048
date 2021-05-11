@@ -1,3 +1,5 @@
+import 'prevent-pull-refresh';
+
 import ReactDOM from 'react-dom';
 import { App } from './App';
 
